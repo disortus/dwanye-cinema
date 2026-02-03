@@ -128,8 +128,26 @@ svg {
     width: 24;
     height: 24;
     color: transparent;
+.navbartop {
+    background-color: #f3f5f6;
+    padding: 0px 60px;
 }
 
-.nav {
-    background-color: black 
+.navbartop nav {
+    display: flex;
+}
+
+.navbartop nav a {
+    text-decoration: none;
+    color: #151516;
+    transition: .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    width: max-content;
+    text-transform: uppercase;
+    padding: 20px 0;
+    line-height: 125%;
+    letter-spacing: .6px;
 }
