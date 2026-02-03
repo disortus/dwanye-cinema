@@ -1,14 +1,68 @@
-.input_button{
+.input_button {
     width: 20;
     height: 20;
     color: transparent;
-    
 }
-.search{
-    width: 100%;
-    background: #f3f5f6;
-    border: 1px solid #f3f5f6;
-    box-sizing: border-box;
-    line-height: 125%;
-    
+
+.search {
+width: 100%;
+  padding: 8px 44px;
+  background: #f3f5f6;
+  border: 1px solid #f3f5f6;
+  box-sizing: border-box;
+  border-radius: 24px;
+  font-size: 14px;
+  line-height: 125%;
+  outline: none;
+  color: #151516;
+}
+
+img,
+video {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.upper_nav {
+    font-size: 14px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.nav_block {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+svg {
+    object-view-box: initial;
+    fill: none;
+}
+
+.icon {
+  color: #ff7b0c;
+}
+
+.icon-path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* пример интерактива */
+.icon:hover {
+  color: #ff9500;
+}
+
+
+.nav {
+    background-color: black 
 }
