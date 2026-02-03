@@ -1,24 +1,24 @@
-body{ 
-  font-size:  var(--def-fs);
-  text-rendering: optimizespeed;
-  line-height: 1.25;
-  font-weight: 400;
-  color: #151516;
-  background: #fff;
-  position: relative;
-  margin: 0;
+body {
+    font-size: var(--def-fs);
+    text-rendering: optimizespeed;
+    line-height: 1.25;
+    font-weight: 400;
+    color: #151516;
+    background: #fff;
+    position: relative;
+    margin: 0;
 }
 
-header{
+header {
     width: 100%;
 }
 
 h2 {
-  font-size: 28px;
-  font-weight: 800;
-  line-height: 35px;
-  letter-spacing: 1.12px;
-  text-transform: uppercase;
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 35px;
+    letter-spacing: 1.12px;
+    text-transform: uppercase;
 }
 
 h1 {
@@ -26,32 +26,36 @@ h1 {
     font-size: 40px;
     line-height: 125%;
     text-transform: none;
-    color: inherit; 
+    color: inherit;
 }
 
-h1,h2,h3,p{
-  font-family: 'Inter', sans-serif; /* можно любые другие шрифты*/
-  font-style: normal;
+h1,
+h2,
+h3,
+p {
+    font-family: 'Inter', sans-serif;
+    /* можно любые другие шрифты*/
+    font-style: normal;
 }
 
-.logo{
+.logo {
     font-size: 14px;
 }
 
 
 
-.logo_link{
-  display: flex;
-  width: 256px;
-  height: 64px;
-  padding: 2px 54.519px 2px 2px;
-  align-items: center;
+.logo_link {
+    display: flex;
+    width: 256px;
+    height: 64px;
+    padding: 2px 54.519px 2px 2px;
+    align-items: center;
 }
 
-.logo_img{
+.logo_img {
     width: 199px;
-  height: 60px;
-  flex-shrink: 0;
+    height: 60px;
+    flex-shrink: 0;
 }
 
 .input_button {
@@ -59,32 +63,38 @@ h1,h2,h3,p{
     height: 20;
     color: transparent;
     left: 16px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
 }
 
-.search_icon{
+.search_icon {
     color: transparent;
+    aspect-ratio: auto 20 / 20;
 }
 
-.search_bar{
-  width: auto;
-  flex-basis: auto;
-  flex-grow: 1;
-  max-width: 400px;
-  margin-right: 16px;
-  position: relative;
+.search_bar {
+    width: auto;
+    flex-basis: auto;
+    flex-grow: 1;
+    max-width: 400px;
+    margin-right: 16px;
+    position: relative;
+
 }
 
 .search {
-  width: 100%;
-  padding: 8px 44px;
-  background: #f3f5f6;
-  border: 1px solid #f3f5f6;
-  box-sizing: border-box;
-  border-radius: 24px;
-  font-size: 14px;
-  line-height: 125%;
-  outline: none;
-  color: #151516;
+    width: 100%;
+    padding: 8px 44px;
+    background: #f3f5f6;
+    border: 1px solid #f3f5f6;
+    box-sizing: border-box;
+    border-radius: 24px;
+    font-size: 14px;
+    line-height: 125%;
+    outline: none;
+    color: #151516;
 }
 
 img,
@@ -118,17 +128,17 @@ video {
     padding: 8px 12px;
 }
 
-.city_change{
-  display: flex;
-  align-items: center;
-  cursor: pointer;
+.city_change {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
 
-.city_name{
-  transition: .3s;
-  font-weight: 400;
-  white-space: nowrap;
-  margin-left: 8px;
+.city_name {
+    transition: .3s;
+    font-weight: 400;
+    white-space: nowrap;
+    margin-left: 8px;
 }
 
 svg {
@@ -139,37 +149,37 @@ svg {
 }
 
 .icon {
-  color: #ff7b0c;
+    color: #ff7b0c;
 }
 
 .icon-path {
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
 /* пример интерактива */
 .icon:hover {
-  color: #ff9500;
+    color: #ff9500;
 }
 
-.lang_change{
+.lang_change {
     width: auto;
-  flex-basis: auto;
-  flex-grow: 0;
-  font-size: 14px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 8px;
-  padding: 8px 12px;
-  transition: .3s;
+    flex-basis: auto;
+    flex-grow: 0;
+    font-size: 14px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 8px 12px;
+    transition: .3s;
 }
 
-.lang_icon{
+.lang_icon {
     max-width: none;
     width: 24;
     height: 24;
@@ -177,81 +187,81 @@ svg {
     margin: 8px;
 }
 
-.phone{
-  flex-basis: auto;
-  flex-grow: 0;
-  display: flex;
-  align-items: center;
-  position: relative;
-  min-width: 34px;
-  min-height: 34px;
-  cursor: pointer;
-  width: 24px;
-  height: 24px;
-  padding: 8px;
-  box-sizing: content-box;
-  border-radius: 8px;
-  transition: .3s;
+.phone {
+    flex-basis: auto;
+    flex-grow: 0;
+    display: flex;
+    align-items: center;
+    position: relative;
+    min-width: 34px;
+    min-height: 34px;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    padding: 8px;
+    box-sizing: content-box;
+    border-radius: 8px;
+    transition: .3s;
 }
 
-.phone_icon{
+.phone_icon {
     color: transparent;
-    width: 24;
-    height: 24;
+    width: 24px;
+    height: 24px;
 }
 
-.menu{
+.menu {
     width: auto;
-  flex-basis: auto;
-  flex-grow: 0;
-  display: flex;
-  align-items: center;
-  position: relative;
-  flex-shrink: 0;
+    flex-basis: auto;
+    flex-grow: 0;
+    display: flex;
+    align-items: center;
+    position: relative;
+    flex-shrink: 0;
 }
 
-.menu_block{
+.menu_block {
     height: 40px;
-  width: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #dde2e5;
-  border-radius: 8px;
-  transition: .3s;
-  cursor: pointer;
+    width: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #dde2e5;
+    border-radius: 8px;
+    transition: .3s;
+    cursor: pointer;
 }
 
-.line_1{
+.line_1 {
     width: 14px;
-  height: 2px;
-  border-radius: 1px;
-  background: #151516;
-  transform: rotate(0deg);
-  transition: .3s;
-  position: relative;
+    height: 2px;
+    border-radius: 1px;
+    background: #151516;
+    transform: rotate(0deg);
+    transition: .3s;
+    position: relative;
 }
 
-.line_2{
+.line_2 {
     width: 14px;
-  height: 2px;
-  border-radius: 1px;
-  background: #151516;
-  margin-top: 4px;
-  margin-bottom: 4px;
-  opacity: 1;
-  transition: .3s;
+    height: 2px;
+    border-radius: 1px;
+    background: #151516;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    opacity: 1;
+    transition: .3s;
 }
 
-.line_3{
+.line_3 {
     width: 14px;
-  height: 2px;
-  border-radius: 1px;
-  background: #151516;
-  transform: rotate(0deg);
-  transition: .3s;
-  position: relative;
+    height: 2px;
+    border-radius: 1px;
+    background: #151516;
+    transform: rotate(0deg);
+    transition: .3s;
+    position: relative;
 }
 
 .navbartop {
