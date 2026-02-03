@@ -1,0 +1,14 @@
+.input_button{
+    width: 20;
+    height: 20;
+    color: transparent;
+    
+}
+.search{
+    width: 100%;
+    background: #f3f5f6;
+    border: 1px solid #f3f5f6;
+    box-sizing: border-box;
+    line-height: 125%;
+    
+}
