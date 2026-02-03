@@ -286,4 +286,22 @@ svg {
     padding: 20px 0;
     line-height: 125%;
     letter-spacing: .6px;
+<<<<<<< Updated upstream
 }
+=======
+}
+
+.sectionHeaderContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #3d3d3d;
+}
+
+.sectionHeaderContent .line {
+    flex: 1;
+    height: 1px; 
+    background-color: #3d3d3d;
+}
+>>>>>>> Stashed changes

@@ -1,0 +1,29 @@
+.cardsContainer {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.card {
+    width: 200px;
+    text-align: left;
+}
+
+.cardImage {
+    width: 100%;
+    border-radius: 15px;
+    display: block;
+}
+
+.cardTitle {
+    margin: 10px 0 5px;
+    font-size: 16px;
+}
+
+.cardDesc {
+    font-size: 14px;
+    color: #555;
+}
