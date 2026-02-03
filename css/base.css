@@ -33,3 +33,158 @@ h1,h2,h3,p{
   font-family: 'Inter', sans-serif; /* можно любые другие шрифты*/
   font-style: normal;
 }
+
+.logo_link{
+  display: flex;
+  width: 256px;
+  height: 64px;
+  padding: 2px 54.519px 2px 2px;
+  align-items: center;
+}
+
+.logo_img{
+    width: 199px;
+  height: 60px;
+  flex-shrink: 0;
+}
+
+.input_button {
+    width: 20;
+    height: 20;
+    color: transparent;
+    left: 16px;
+}
+
+.search_bar{
+  width: auto;
+  flex-basis: auto;
+  flex-grow: 1;
+  max-width: 400px;
+  margin-right: 16px;
+  position: relative;
+}
+
+.search {
+  width: 100%;
+  padding: 8px 44px;
+  background: #f3f5f6;
+  border: 1px solid #f3f5f6;
+  box-sizing: border-box;
+  border-radius: 24px;
+  font-size: 14px;
+  line-height: 125%;
+  outline: none;
+  color: #151516;
+}
+
+img,
+video {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.upper_nav {
+    font-size: 14px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.nav_block {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    width: auto;
+    flex-basis: auto;
+    flex-grow: 0;
+    position: relative;
+    height: 100%;
+    transition: .3s;
+    border-radius: 8px;
+    padding: 8px 12px;
+}
+
+.city_change{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.city_name{
+  transition: .3s;
+  font-weight: 400;
+  white-space: nowrap;
+  margin-left: 8px;
+}
+
+svg {
+    object-view-box: initial;
+    fill: none;
+    width: 24px;
+    height: 24px;
+}
+
+.icon {
+  color: #ff7b0c;
+}
+
+.icon-path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* пример интерактива */
+.icon:hover {
+  color: #ff9500;
+}
+
+.lang_change{
+    width: auto;
+  flex-basis: auto;
+  flex-grow: 0;
+  font-size: 14px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 8px 12px;
+  transition: .3s;
+}
+
+.lang_icon{
+    max-width: none;
+    width: 24;
+    height: 24;
+    color: transparent;
+}
+.navbartop {
+    background-color: #f3f5f6;
+    padding: 0px 60px;
+}
+
+.navbartop nav {
+    display: flex;
+}
+
+.navbartop nav a {
+    text-decoration: none;
+    color: #151516;
+    transition: .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    width: max-content;
+    text-transform: uppercase;
+    padding: 20px 0;
+    line-height: 125%;
+    letter-spacing: .6px;
+}
