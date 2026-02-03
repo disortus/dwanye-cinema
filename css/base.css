@@ -150,6 +150,8 @@ svg {
 
 .icon {
     color: #ff7b0c;
+    width: 24px;
+    height: 24px;
 }
 
 .icon-path {
