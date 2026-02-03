@@ -1,11 +1,35 @@
+.logo_link{
+  display: flex;
+  width: 256px;
+  height: 64px;
+  padding: 2px 54.519px 2px 2px;
+  align-items: center;
+}
+
+.logo_img{
+    width: 199px;
+  height: 60px;
+  flex-shrink: 0;
+}
+
 .input_button {
     width: 20;
     height: 20;
     color: transparent;
+    left: 16px;
+}
+
+.search_bar{
+  width: auto;
+  flex-basis: auto;
+  flex-grow: 1;
+  max-width: 400px;
+  margin-right: 16px;
+  position: relative;
 }
 
 .search {
-width: 100%;
+  width: 100%;
   padding: 8px 44px;
   background: #f3f5f6;
   border: 1px solid #f3f5f6;
@@ -38,11 +62,34 @@ video {
     display: flex;
     align-items: center;
     gap: 24px;
+    width: auto;
+    flex-basis: auto;
+    flex-grow: 0;
+    position: relative;
+    height: 100%;
+    transition: .3s;
+    border-radius: 8px;
+    padding: 8px 12px;
+}
+
+.city_change{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.city_name{
+  transition: .3s;
+  font-weight: 400;
+  white-space: nowrap;
+  margin-left: 8px;
 }
 
 svg {
     object-view-box: initial;
     fill: none;
+    width: 24px;
+    height: 24px;
 }
 
 .icon {
@@ -62,6 +109,26 @@ svg {
   color: #ff9500;
 }
 
+.lang_change{
+    width: auto;
+  flex-basis: auto;
+  flex-grow: 0;
+  font-size: 14px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 8px 12px;
+  transition: .3s;
+}
+
+.lang_icon{
+    max-width: none;
+    width: 24;
+    height: 24;
+    color: transparent;
+}
 
 .nav {
     background-color: black 
