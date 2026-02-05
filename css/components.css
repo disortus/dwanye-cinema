@@ -27,3 +27,136 @@
     font-size: 14px;
     color: #555;
 }
+
+.cardsPrice {
+    display: flex;
+    padding: 8px 9px;
+    border-radius: 2px 12px 12px;
+    background: #f3f5f6;
+    color: #151516;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 15px;
+}
+
+.mini_h{
+    max-width: 1240px;
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.mini_main_pg{
+    align-items: center !important;
+    -webkit-box-align: center !important;
+    display: flex !important;
+    box-sizing: inherit;
+    padding-top: 24px !important;
+  padding-bottom: 24px !important;
+  flex-wrap: wrap !important;
+}
+
+.mini_main_btn{
+    padding: 0 !important;
+    font-family: 'Open Sans',sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 22px;
+    letter-spacing: 0;
+    color: #4e4e4e;
+    background: transparent;
+
+}
+
+.mini_about{
+    -webkit-box-align: center !important;
+    align-items: center !important;
+    display: flex !important;
+    box-sizing: inherit;
+    color: #0e0e0e;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.slesh {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 22px;
+  color: #4e4e4e;
+}
+
+.mini_about_btn{
+    padding: 0 !important;
+    font-weight: 700;
+    font-size: .8125rem;
+    color: #0e0e0e;
+    background: transparent;
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.mini_main_btn,
+.mini_about_btn {
+  border: none;
+  background: none;
+  padding: 0;
+  outline: none;
+}
+
+
+
+
+.breadcrumb-link {
+color: #4e4e4e;
+text-decoration: none;
+}
+
+
+.breadcrumb-link:hover {
+text-decoration: underline;
+}
+
+
+.breadcrumb-sep {
+margin: 0 8px;
+color: #4e4e4e;
+}
+
+
+.breadcrumb-current {
+font-weight: 700;
+color: #0e0e0e;
+}
+
+
+/* Page */
+.page-title {
+margin: 48px 0 24px;
+font-size: 32px;
+font-weight: 700;
+}
+
+
+.content {
+max-width: 820px;
+font-size: 16px;
+line-height: 1.6;
+}
+
+
+.content p {
+margin-bottom: 20px;
+}
+
+.about_img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
