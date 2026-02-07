@@ -240,10 +240,7 @@ function renderCinemas() {
         list = document.createElement("div");
         list.id = "cinemas-list";
         list.className = "cinemas-list-container";
-        // Append after the static address info or replace it? 
-        // User wants dynamic branches. Let's keep the static header "Address" as generic info or hide it?
-        // The implementation plan said "Dynamic list". 
-        // Let's append it to .contact-info
+        // доделать
         container.appendChild(list);
     }
     
