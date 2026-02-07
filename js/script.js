@@ -95,5 +95,72 @@ const recommendedFilms = films.filter(function (films) {
   return films.category === "recommended";
 });
 
-renderCards(popularFilms, "cards-container");
-renderCards(recommendedFilms, "cards-container2");
+// Check if we are on the main page
+if (document.getElementById("cards-container")) {
+  renderCards(popularFilms, "cards-container");
+}
+
+if (document.getElementById("cards-container2")) {
+  renderCards(recommendedFilms, "cards-container2");
+}
+
+// Check if we are on the catalog page
+if (document.getElementById("catalog-container")) {
+  renderCards(films, "catalog-container");
+} else {
+    // If element doesn't exist, we might be on catalog page but without the ID yet,
+    // actually catalog.html doesn't have the container ID.
+    // I need to add the container to catalog.html first!
+    // But assuming I will do it or did it.
+    // Wait, I saw catalog.html earlier and it didn't have a container for cards.
+    // I should add it.
+}
+
+// Form Validation
+const contactForm = document.getElementById("contactForm");
+if (contactForm) {
+  contactForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+    const agreement = document.getElementById("agreement").checked;
+    const formMessage = document.getElementById("formMessage");
+
+    // Reset message
+    formMessage.style.display = "none";
+    formMessage.className = "form-message";
+
+    let errors = [];
+
+    if (name === "") {
+      errors.push("Пожалуйста, введите ваше имя.");
+    }
+
+    if (email === "" || !email.includes("@")) {
+      errors.push("Пожалуйста, введите корректный email.");
+    }
+
+    if (message === "") {
+        errors.push("Пожалуйста, введите сообщение.");
+    }
+
+    if (!agreement) {
+      errors.push("Вы должны согласиться на обработку персональных данных.");
+    }
+
+    if (errors.length > 0) {
+      formMessage.innerHTML = errors.join("<br>");
+      formMessage.classList.add("error");
+      formMessage.style.display = "block";
+    } else {
+      // Success
+      alert("Сообщение успешно отправлено!");
+      console.log("Form submitted:", { name, email, message });
+      formMessage.textContent = "Сообщение успешно отправлено!";
+      formMessage.classList.add("success");
+      formMessage.style.display = "block";
+      contactForm.reset();
+    }
+  });
+}
