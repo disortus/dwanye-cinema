@@ -87,36 +87,261 @@ function renderCards(data, containerId) {
   });
 }
 
-const popularFilms = films.filter(function (films) {
-  return films.category === "popular";
+const cities = ["Astana", "Almaty", "Shymkent"];
+
+const cinemas = [
+    {
+        name: "Dwanye Cinema - Mega Silk Way",
+        city: "Astana",
+        address: "пр. Кабанбай батыра, 62",
+        phone: "+7 701 111 22 33",
+        workHours: "10:00 - 02:00",
+        coords: "51.089, 71.413" // для карты
+    },
+    {
+        name: "Dwanye Cinema - Keruen",
+        city: "Astana",
+        address: "ул. Достык, 9",
+        phone: "+7 701 444 55 66",
+        workHours: "10:00 - 03:00",
+        coords: "51.128, 71.430"
+    },
+    {
+        name: "Dwanye Cinema - Dostyk Plaza",
+        city: "Almaty",
+        address: "мкр. Самал-2, 111",
+        phone: "+7 727 222 33 44",
+        workHours: "10:00 - 02:00",
+        coords: "43.233, 76.956"
+    },
+    {
+        name: "Dwanye Cinema - Shymkent Plaza",
+        city: "Shymkent",
+        address: "пл. Аль-Фараби, 3/1",
+        phone: "+7 725 255 66 77",
+        workHours: "10:00 - 01:00",
+        coords: "42.315, 69.590"
+    }
+];
+
+const translations = {
+    en: {
+        "header.main": "Home",
+        "header.films": "Movies",
+        "header.cinemas": "Cinemas",
+        "header.about": "About Us",
+        "header.cabinet": "My Account",
+        "hero.title": "DIVE INTO THE WORLD OF CINEMA",
+        "hero.subtitle": "Best new releases, comfortable halls and unforgettable emotions await you at Dwanye Cinema",
+        "hero.btn": "View Schedule",
+        "section.popular": "POPULAR",
+        "section.recommendations": "RECOMMENDED",
+        "footer.rights": "(c) 2025 Company 'tomerloshechki'. All rights reserved.",
+        "search.placeholder": "Search films...",
+        "contacts.title": "Contacts",
+        "contacts.address": "Our Address",
+        "contacts.phone": "Phone",
+        "contacts.workHours": "Working Hours",
+        "contacts.feedback": "Feedback",
+        "form.name": "Your Name:",
+        "form.name.placeholder": "Enter name",
+        "form.email": "Email:",
+        "form.email.placeholder": "example@mail.com",
+        "form.message": "Message:",
+        "form.message.placeholder": "Your message",
+        "form.agreement": "I agree to the processing of personal data",
+        "form.submit": "Send",
+        "about.title": "About Company",
+        "bin.title": "Personal Account",
+        "bin.message": "This section is under development.",
+        "bin.back": "Back to Home"
+    },
+    ru: {
+        "header.main": "Главная",
+        "header.films": "Фильмы",
+        "header.cinemas": "Кинотеатры",
+        "header.about": "О нас",
+        "header.cabinet": "Личный кабинет",
+        "hero.title": "ПОГРУЗИСЬ В МИР КИНО",
+        "hero.subtitle": "Лучшие новинки, комфортные залы и незабываемые эмоции ждут тебя в Dwanye Cinema",
+        "hero.btn": "Смотреть афишу",
+        "section.popular": "ПОПУЛЯРНОЕ",
+        "section.recommendations": "РЕКОМЕНДАЦИИ",
+        "footer.rights": "(c) 2025 Компания «томерлошечки». Все права защищены.",
+        "search.placeholder": "Поиск фильмов...",
+        "contacts.title": "Контакты",
+        "contacts.address": "Наш адрес",
+        "contacts.phone": "Телефон",
+        "contacts.workHours": "Режим работы",
+        "contacts.feedback": "Обратная связь",
+        "form.name": "Ваше имя:",
+        "form.name.placeholder": "Введите имя",
+        "form.email": "Email:",
+        "form.email.placeholder": "example@mail.com",
+        "form.message": "Сообщение:",
+        "form.message.placeholder": "Ваше сообщение",
+        "form.agreement": "Я согласен на обработку персональных данных",
+        "form.submit": "Отправить",
+        "about.title": "О компании",
+        "bin.title": "Личный кабинет",
+        "bin.message": "Этот раздел находится в разработке.",
+        "bin.back": "Вернуться на главную"
+    }
+};
+
+// статус города и языка
+let currentCity = localStorage.getItem("currentCity") || "Astana";
+let currentLang = localStorage.getItem("currentLang") || "ru";
+
+function saveState() {
+    localStorage.setItem("currentCity", currentCity);
+    localStorage.setItem("currentLang", currentLang);
+    updateUI();
+}
+
+function updateUI() {
+    const cityDisplay = document.querySelector(".city_name"); // обновление города, доделать
+    if (cityDisplay) cityDisplay.textContent = currentCity;
+
+    const langDisplay = document.querySelector(".lang_change"); // обновление языка
+    if (langDisplay) {
+         const icon = langDisplay.querySelector("img") ? langDisplay.querySelector("img").outerHTML : "";
+         langDisplay.innerHTML = `${icon}${currentLang === 'ru' ? 'Rus' : 'Eng'}`;
+    }
+    
+    applyTranslations();
+    
+    // отображение кинотеатров
+    if (document.querySelector(".contacts-container")) {
+        renderCinemas();
+    }
+}
+
+function applyTranslations() {
+    const t = translations[currentLang];
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (t[key]) {
+            if (el.tagName === "INPUT" && el.getAttribute("placeholder")) {
+                el.placeholder = t[key];
+            } else {
+                el.textContent = t[key];
+            }
+        }
+    });
+}
+
+function renderCinemas() {
+    const container = document.querySelector(".contacts-container .contact-info");
+    if (!container) return;
+
+    let list = document.getElementById("cinemas-list");
+    if (!list) {
+        list = document.createElement("div");
+        list.id = "cinemas-list";
+        list.className = "cinemas-list-container";
+        // Append after the static address info or replace it? 
+        // User wants dynamic branches. Let's keep the static header "Address" as generic info or hide it?
+        // The implementation plan said "Dynamic list". 
+        // Let's append it to .contact-info
+        container.appendChild(list);
+    }
+    
+    // найти кинотеатры
+    const filteredCinemas = cinemas.filter(c => c.city === currentCity);
+    
+    let html = `
+        <div class="cinemas-header" style="margin-top: 20px; border-top: 1px solid #ddd; padding-top: 10px;">
+            <h3 data-i18n="header.cinemas">${currentLang === 'ru' ? 'Кинотеатры' : 'Cinemas'} - ${currentCity}</h3>
+        </div>
+    `;
+    
+    if (filteredCinemas.length === 0) {
+        html += `<p>${currentLang === 'ru' ? 'В этом городе пока нет наших кинотеатров.' : 'No cinemas in this city yet.'}</p>`;
+    } else {
+        html += `<ul class="cinema-list" style="list-style: none; padding: 0;">`;
+        filteredCinemas.forEach(c => {
+            html += `
+                <li class="cinema-item" style="margin-bottom: 20px; background: #f9f9f9; padding: 15px; border-radius: 8px;">
+                    <strong style="font-size: 1.1em; color: #333;">${c.name}</strong><br>
+                    <span style="color: #666;">${c.address}</span><br>
+                    <a href="tel:${c.phone}" style="color: #ff7a00; text-decoration: none;">${c.phone}</a><br>
+                    <span style="font-size: 0.9em; color: #888;">${c.workHours}</span>
+                </li>
+            `;
+        });
+        html += `</ul>`;
+    }
+    
+    list.innerHTML = html;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    updateUI();
+
+    // переключение города
+    const cityChangeBtn = document.querySelector(".city_change");
+    if (cityChangeBtn) {
+        cityChangeBtn.style.cursor = "pointer";
+        cityChangeBtn.addEventListener("click", () => {
+            const currentIndex = cities.indexOf(currentCity);
+            const nextIndex = (currentIndex + 1) % cities.length;
+            currentCity = cities[nextIndex];
+            saveState();
+        });
+    }
+
+    // переключение языка
+    const langChangeBtn = document.querySelector(".lang_change");
+    if (langChangeBtn) {
+        langChangeBtn.style.cursor = "pointer";
+        langChangeBtn.addEventListener("click", () => {
+             currentLang = currentLang === "ru" ? "en" : "ru";
+             saveState();
+        });
+    }
+
+    // функция поиска
+    const searchInput = document.querySelector(".search");
+    if (searchInput) {
+        searchInput.addEventListener("input", (e) => {
+            const query = e.target.value.toLowerCase();
+            const filteredFilms = films.filter(film => 
+                film.title.toLowerCase().includes(query)
+            );
+            
+            // контейнеры главной страницы
+            if (document.getElementById("cards-container")) {
+                 const filteredPopular = filteredFilms.filter(f => f.category === "popular");
+                 renderCards(filteredPopular, "cards-container");
+            }
+            if (document.getElementById("cards-container2")) {
+                 const filteredRec = filteredFilms.filter(f => f.category === "recommended");
+                 renderCards(filteredRec, "cards-container2");
+            }
+            
+            // контейнер каталога
+            if (document.getElementById("catalog-container")) {
+                renderCards(filteredFilms, "catalog-container");
+            }
+        });
+    }
+
+    const popularFilms = films.filter(f => f.category === "popular");
+    const recommendedFilms = films.filter(f => f.category === "recommended");
+
+    if (document.getElementById("cards-container")) {
+        renderCards(popularFilms, "cards-container");
+    }
+    if (document.getElementById("cards-container2")) {
+        renderCards(recommendedFilms, "cards-container2");
+    }
+    if (document.getElementById("catalog-container")) {
+        renderCards(films, "catalog-container"); 
+    }
 });
 
-const recommendedFilms = films.filter(function (films) {
-  return films.category === "recommended";
-});
-
-// Check if we are on the main page
-if (document.getElementById("cards-container")) {
-  renderCards(popularFilms, "cards-container");
-}
-
-if (document.getElementById("cards-container2")) {
-  renderCards(recommendedFilms, "cards-container2");
-}
-
-// Check if we are on the catalog page
-if (document.getElementById("catalog-container")) {
-  renderCards(films, "catalog-container");
-} else {
-    // If element doesn't exist, we might be on catalog page but without the ID yet,
-    // actually catalog.html doesn't have the container ID.
-    // I need to add the container to catalog.html first!
-    // But assuming I will do it or did it.
-    // Wait, I saw catalog.html earlier and it didn't have a container for cards.
-    // I should add it.
-}
-
-// Form Validation
+// валидация формы
 const contactForm = document.getElementById("contactForm");
 if (contactForm) {
   contactForm.addEventListener("submit", function (e) {
@@ -127,7 +352,6 @@ if (contactForm) {
     const agreement = document.getElementById("agreement").checked;
     const formMessage = document.getElementById("formMessage");
 
-    // Reset message
     formMessage.style.display = "none";
     formMessage.className = "form-message";
 
@@ -154,7 +378,7 @@ if (contactForm) {
       formMessage.classList.add("error");
       formMessage.style.display = "block";
     } else {
-      // Success
+
       alert("Сообщение успешно отправлено!");
       console.log("Form submitted:", { name, email, message });
       formMessage.textContent = "Сообщение успешно отправлено!";

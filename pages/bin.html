@@ -1,22 +1,20 @@
-<!doctype html>
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет - Dwanye Cinema</title>
     <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/components.css">
-    <title>Dwanye</title>
 </head>
-
 <body>
     <header>
         <div class="upper_nav">
             <div class="logo">
-                <a href="../index.html" class="logo_link"><img class="logo_img"
-                        src="../imgs/fluent-emoji-flat--rock.svg" alt="logo" /></a>
+                <a href="../index.html" class="logo_link"><img class="logo_img" src="../imgs/fluent-emoji-flat--rock.svg"
+                        alt="logo" /></a>
             </div>
             <div class="search_bar">
                 <div class="input_button">
@@ -25,11 +23,11 @@
                         class="search_icon" />
 
                 </div>
-                <input class="search" placeholder="Search more than 1000 films..." type="text" name="search" value="" />
+                <input class="search" placeholder="Search more than 1000 films..." type="text" name="search" value="" data-i18n="search.placeholder" />
             </div>
             <div class="nav_block">
                 <div class="city_change">
-                    <svg class="icon" viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <g class="icon-group">
                             <path class="icon-path"
                                 d="M19 10.3636C19 16.0909 12 21 12 21C12 21 5 16.0909 5 10.3636C5 8.41068 5.7375 6.53771 7.05025 5.15676C8.36301 3.77581 10.1435 3 12 3C13.8565 3 15.637 3.77581 16.9497 5.15676C18.2625 6.53771 19 8.41068 19 10.3636Z" />
@@ -40,8 +38,8 @@
                     <div class="city_name">Astana</div>
                 </div>
                 <div class="lang_change">
-                    <img alt="lang" src="../imgs/ic--baseline-language.svg" decoding="async" loading="lazy"
-                        data-nimg="1" class="lang_icon">Rus
+                    <img alt="lang" src="../imgs/ic--baseline-language.svg" decoding="async" loading="lazy" data-nimg="1"
+                        class="lang_icon">Rus
                 </div>
                 <div class="phone">
                     <img src="../imgs/streamline-flex--phone-solid.svg" alt="phone" loading="lazy" decoding="async"
@@ -58,19 +56,24 @@
         </div>
         <div class="navbartop">
             <nav>
-                <a href="#">Кино</a>
-                <a href="#">Театры</a>
-                <a href="#">Концерты</a>
-                <a href="#">Stand up</a>
-                <a href="#">Детям</a>
-                <a href="#">Туры</a>
-                <a href="#">Мастер-классы</a>
-                <a href="#">Бизнес-форумы</a>
-                <a href="#">Музеи</a>
-                <a href="#">Развлечения</a>
+                <a href="../index.html" data-i18n="header.main">Главная</a>
+                <a href="./catalog.html" data-i18n="header.films">Фильмы</a>
+                <a href="./contacts.html" data-i18n="header.cinemas">Кинотеатры</a>
+                <a href="./about.html" data-i18n="header.about">О нас</a>
+                <a href="./bin.html" class="active" data-i18n="header.cabinet">Личный кабинет</a>
             </nav>
         </div>
     </header>
+
+    <main class="container" style="min-height: 50vh; display: flex; align-items: center; justify-content: center; text-align: center;">
+        <div class="login-placeholder">
+            <h1 data-i18n="bin.title">Личный кабинет</h1>
+            <p data-i18n="bin.message">Этот раздел находится в разработке.</p>
+            <p>Скоро вы сможете входить в свой аккаунт и смотреть историю покупок.</p>
+            <br>
+            <a href="../index.html" class="btn btn-primary" data-i18n="bin.back">Вернуться на главную</a>
+        </div>
+    </main>
 
     <footer class="site-footer">
         <div class="footer-top">
@@ -91,7 +94,5 @@
 
         <p class="footer-copy">(c) 2025 Компания «томерлошечки». Все права защищены.</p>
     </footer>
-
 </body>
-
 </html>
