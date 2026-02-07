@@ -385,3 +385,22 @@ if (contactForm) {
     }
   });
 }
+
+
+// смену языков доделать
+// доработать смену городов, разныце цены и расписания для разных городов
+// добавить карту, картинки
+
+/// переход страниц
+
+document.querySelectorAll(".nav-link").forEach(link => {
+    link.addEventListener("click", function(e) {
+        e.preventDefault();
+        let url = this.href;
+        document.body.classList.add("fade-out");
+
+        setTimeout(() => {
+            window.location.href = url;
+        }, 500);
+    });
+});
