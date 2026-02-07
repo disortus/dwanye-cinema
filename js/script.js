@@ -66,17 +66,43 @@ function createCard(films) {
   const card = document.createElement("div");
   card.className = "card";
 
+  card.dataset.name = films.title;
+  card.dataset.price = films.priceNormal.replace(/\D/g, "");
+
   card.innerHTML = `
     <img src="${films.image}" alt="${films.title}" class="cardImage">
     <h3 class="cardTitle">${films.title}</h3>
     <p class="cardDesc">${films.description}</p>
+
     <div class="cardPrices">
-      <div class="priceNormal">${films.priceNormal}</div>
+      <div class="priceNormal add-to-cart">
+        ${films.priceNormal}
+      </div>
     </div>
   `;
 
   return card;
 }
+
+document.addEventListener("click", function(e) {
+  if (e.target.classList.contains("add-to-cart")) {
+    const card = e.target.closest(".card");
+    const name = card.dataset.name;
+    const price = parseInt(card.dataset.price);
+
+    if (!cartData[name]) {
+      cartData[name] = { qty: 1, price };
+    } else {
+      cartData[name].qty++;
+    }
+
+    document.getElementById("cart").classList.add("active");
+    renderCart();
+  }
+});
+
+
+
 
 function renderCards(data, containerId) {
   const container = document.getElementById(containerId);
@@ -404,3 +430,49 @@ document.querySelectorAll(".nav-link").forEach(link => {
         }, 500);
     });
 });
+
+
+/// корзина
+let cartData = {};
+
+function addToCart(button) {
+  const card = button.closest(".card");
+  const name = card.dataset.name;
+  const price = parseInt(card.dataset.price);
+
+  cartData[name] ? cartData[name].qty++ : cartData[name] = { qty: 1, price };
+  document.getElementById("cart").classList.add("active");
+  renderCart();
+}
+
+function changeQty(name, delta) {
+  cartData[name].qty += delta;
+  if (cartData[name].qty <= 0) delete cartData[name];
+  renderCart();
+}
+
+function renderCart() {
+  const cartItems = document.getElementById("cartItems");
+  const totalPrice = document.getElementById("totalPrice");
+  cartItems.innerHTML = "";
+
+  let total = 0;
+  for (let name in cartData) {
+    const item = cartData[name];
+    total += item.qty * item.price;
+
+    const div = document.createElement("div");
+    div.className = "cart-item";
+    div.innerHTML = `
+      <span>${name} (₸${item.price})</span>
+      <div>
+        <button onclick="changeQty('${name}', -1)">-</button>
+        <span>${item.qty}</span>
+        <button onclick="changeQty('${name}', 1)">+</button>
+      </div>
+    `;
+    cartItems.appendChild(div);
+  }
+
+  totalPrice.innerText = `Итого: ₸${total}`;
+}

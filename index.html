@@ -132,6 +132,15 @@
                 </div>
             </div>
         </section>
+              <div class="cart" id="cart">
+                    <div class="cart-header">
+                    <h2>Корзина</h2>
+                    <button class="close-cart" onclick="document.getElementById('cart').classList.remove('active')">✖</button>
+                    </div>
+                    <div id="cartItems"></div>
+                    <h3 id="totalPrice">Итого: ₸0</h3>
+                    <button class="order-btn" onclick="window.location.href='dostavka.html'">Заказать сейчас</button>
+                </div>
     </main>
 
     <footer class="site-footer">
