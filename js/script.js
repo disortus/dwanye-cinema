@@ -2,51 +2,98 @@ const films = [
   {
     id: 1,
     title: "Казнить нельзя помиловать (2026)",
-    description: "В недалёком будущем детектив оказывается на суде, обвинённый в убийстве собственной жены. У него есть всего 90 минут, чтобы доказать свою невиновность перед ИИ-судьёй.",
-    image: "./imgs/kaznit-nelsya-pomilovat.jpg"
+    description:
+      "В недалёком будущем детектив оказывается на суде, обвинённый в убийстве собственной жены.",
+    image: "./imgs/kaznit-nelsya-pomilovat.jpg",
+    category: "popular",
+    priceNormal: "от 1300 ₸",
   },
   {
     id: 2,
     title: "Возвращение в Сайлент-Хилл (2026)",
-    description: "Джеймс Сандерленд тяжело переживает разлуку со своей возлюбленной и получает таинственное письмо, которое приводит его в город Сайлент Хилл.",
-    image: "./imgs/silent-hill.jpg"
+    description:
+      "Джеймс Сандерленд получает таинственное письмо и отправляется в Сайлент Хилл.",
+    image: "./imgs/silent-hill.jpg",
+    category: "popular",
+    priceNormal: "от 1300 ₸",
   },
   {
     id: 3,
     title: "28 лет спустя: Часть II. Храм костей (2026)",
-    description: "Расширяя мир, созданный Дэнни Бойлом и Алексом Гарлендом в «28 лет спустя», но переворачивая его с ног на голову.",
-    image: "./imgs/letspystya.jpg"
+    description: "Продолжение постапокалиптической истории.",
+    image: "./imgs/letspystya.jpg",
+    category: "popular",
+    priceNormal: "от 1300 ₸",
   },
   {
     id: 4,
     title: "Гренландия 2: Миграция (2026)",
-    description: "Отголоски катастрофы, которая обрушилась на Землю пять лет назад, нависли над человечеством.",
-    image: "./imgs/grenlandia.jpg"
-  }
+    description: "Человечество пытается выжить после глобальной катастрофы.",
+    image: "./imgs/grenlandia.jpg",
+    category: "popular",
+    priceNormal: "от 1300 ₸",
+  },
+  {
+    id: 5,
+    title: "Марти Великолепный (2026)",
+    description:
+      "Молодой амбициозный парень Марти Маузер готов пойти на всё ради осуществления своей мечты.",
+    image: "./imgs/dune2.jpg",
+    category: "recommended",
+    priceNormal: "от 1300 ₸",
+  },
+  {
+    id: 6,
+    title: "Горничная (2026)",
+    description:
+      "Милли мечтает начать жизнь с чистого листа и с радостью принимает работу горничной в роскошном особняке семьи Винчестер.",
+    image: "./imgs/oppenheimer.jpg",
+    category: "recommended",
+    priceNormal: "от 1300 ₸",
+  },
+  {
+    id: 7,
+    title: "На помощь! (2026)",
+    description:
+      "Двое коллег оказываются на необитаемом острове, став единственными выжившими после авиакатастрофы.",
+    image: "./imgs/blade-runner.jpg",
+    category: "recommended",
+    priceNormal: "от 1300 ₸",
+  },
 ];
-
-const container = document.getElementById("cards-container");
 
 function createCard(films) {
   const card = document.createElement("div");
-  card.classList.add("card");
+  card.className = "card";
 
   card.innerHTML = `
-    <img src="${films.image}" alt="Фото" class="cardImage">
-    <h3 class="cardTitle"><strong>${films.title}</strong></h3>
+    <img src="${films.image}" alt="${films.title}" class="cardImage">
+    <h3 class="cardTitle">${films.title}</h3>
     <p class="cardDesc">${films.description}</p>
+    <div class="cardPrices">
+      <div class="priceNormal">${films.priceNormal}</div>
+    </div>
   `;
+
   return card;
 }
 
+function renderCards(data, containerId) {
+  const container = document.getElementById(containerId);
+  container.innerHTML = "";
 
-function renderCards(data) {
-  container.innerHTML = ""; 
-
-  data.forEach(function(item) {
-    const cardElement = createCard(item);
-    container.appendChild(cardElement);
+  data.forEach(function (films) {
+    container.appendChild(createCard(films));
   });
 }
 
-renderCards(films);
+const popularFilms = films.filter(function (films) {
+  return films.category === "popular";
+});
+
+const recommendedFilms = films.filter(function (films) {
+  return films.category === "recommended";
+});
+
+renderCards(popularFilms, "cards-container");
+renderCards(recommendedFilms, "cards-container2");
