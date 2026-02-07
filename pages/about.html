@@ -15,7 +15,7 @@
     <header>
         <div class="upper_nav">
             <div class="logo">
-                <a href="../index.html" class="logo_link"><img class="logo_img" src="../imgs/fluent-emoji-flat--rock.svg"
+                <a href="../index.html" class="logo_link nav-link"><img class="logo_img" src="../imgs/fluent-emoji-flat--rock.svg"
                         alt="logo" /></a>
             </div>
             <div class="search_bar">
@@ -58,25 +58,25 @@
         </div>
         <div class="navbartop">
             <nav>
-                <a href="../index.html" data-i18n="header.main">Главная</a>
-                <a href="./catalog.html" data-i18n="header.films">Фильмы</a>
-                <a href="./contacts.html" data-i18n="header.cinemas">Кинотеатры</a>
-                <a href="./about.html" class="active" data-i18n="header.about">О нас</a>
-                <a href="./bin.html" data-i18n="header.cabinet">Личный кабинет</a>
+                <a href="../index.html" class = "nav-link" data-i18n="header.main">Главная</a>
+                <a href="./catalog.html" class = "nav-link" data-i18n="header.films">Фильмы</a>
+                <a href="./contacts.html" class = "nav-link" data-i18n="header.cinemas">Кинотеатры</a>
+                <a href="./about.html" class = "nav-link" class="active" data-i18n="header.about">О нас</a>
+                <a href="./bin.html" class = "nav-link" data-i18n="header.cabinet">Личный кабинет</a>
             </nav>
         </div>
     </header>
     <main class="bg_wrapper container">
         <div class="mini_h">
-            <div class="mini_main_pg breadcrumb">
+            <div class="mini_main_pg breadcrumb nav-link"> <!-- почему то когда здесь пытаешься добавить переход (class = "nav-link"), то перестает работать ссылка на index.html-->
                 <a href="../index.html">
                     <button class="mini_main_btn">Главная</button>
                 </a>
 
-                <span class="slesh">/</span>
+                <span class="slesh nav-link">/</span>
 
                 <a href="./about.html">
-                    <button class="mini_about_btn">О Компании</button>
+                    <button class="mini_about_btn">О Компании</button><!-- тут тоже -->
                 </a>
             </div>
         </div>
@@ -137,7 +137,7 @@
                     </div>
                     <div class="d-flex justify-content-start">
                         <div class="fill"><a href="./contacts.html"><button data-tip="true"
-                                    class="button button-color-red typography_variant-bodybold   pt-12 pb-12 mt-32 section-about_btn color_white">Смотреть
+                                     class="button button-color-red typography_variant-bodybold   pt-12 pb-12 mt-32 section-about_btn color_white nav-link">Смотреть <!-- тоже самое -->
                                     список кинотеатров</button></a></div>
                     </div>
                 </div>
@@ -148,7 +148,7 @@
 
     <footer class="site-footer">
         <div class="footer-top">
-            <a href="../index.html" class="footer-logo">
+            <a href="../index.html" class="footer-logo nav-link">
                 <img src="../imgs/fluent-emoji-flat--rock.svg" alt="logo">
             </a>
 
