@@ -88,7 +88,7 @@ const films = [
         "Shymkent": 1100
     }
   },
-  // New Movies
+  // анрил рандом фильмы от иишки
   {
     id: 8,
     title: "Носферату (2025)",
@@ -378,7 +378,7 @@ const translations = {
     }
 };
 
-// User Account System (Pseudo-backend)
+// регистрация
 const users = JSON.parse(localStorage.getItem("users")) || [];
 let currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
 
@@ -390,7 +390,7 @@ function registerUser(name, email, password) {
     users.push(newUser);
     localStorage.setItem("users", JSON.stringify(users));
     
-    // Auto login
+
     currentUser = newUser;
     localStorage.setItem("currentUser", JSON.stringify(currentUser));
     return { success: true };
@@ -410,14 +410,13 @@ function logoutUser() {
     currentUser = null;
     localStorage.removeItem("currentUser");
     
-    // Check where we are to determine correct path to bin.html
+
     const isPagesDir = window.location.pathname.includes("/pages/");
     const target = isPagesDir ? "bin.html" : "pages/bin.html";
     window.location.href = target;
 }
 
-// Ensure global access for bin.html auto-render if needed, 
-// but we will move main logic here entirely.
+
 window.handleLogin = function(e) {
     if(e) e.preventDefault();
     const email = document.getElementById('login-email').value;
@@ -453,18 +452,16 @@ window.handleRegister = function(e) {
     }
 }
 
-// Bin Page Renderer (Moved from inline script)
+
 function renderAuthPage() {
     const authContainer = document.getElementById('auth-section');
     if(!authContainer) return;
 
-    // Check strict redirect if logged in
     if (currentUser) {
         window.location.href = "profile.html";
         return;
     }
-    
-    // Default to Login View
+
     renderLoginView(authContainer);
 }
 
@@ -521,13 +518,14 @@ function renderRegisterView(container) {
     updateUI();
     document.getElementById('go-login').onclick = () => renderLoginView(container);
 }
+// иишный код, надо будет переделать
 
-// Set initial state from LocalStorage IMMEDIATELY
-// This runs once script is loaded to ensure variables are set
+
 if(!localStorage.getItem("currentCity")) localStorage.setItem("currentCity", "Astana");
 if(!localStorage.getItem("currentLang")) localStorage.setItem("currentLang", "ru");
+// неработает, исправить
 
-// Profile Page Renderer
+// профиль
 function renderProfilePage() {
     const container = document.getElementById('profile-section');
     if(!container) return;
@@ -559,6 +557,7 @@ function renderProfilePage() {
         <button class="btn-logout" onclick="window.authSystem.logoutUser()" data-i18n="bin.logout">${t["bin.logout"] || "Выйти"}</button>
     `;
 }
+// ишный код, надо будет переделать
 
 
 // статус города и языка
@@ -575,18 +574,12 @@ function createCard(film) {
   const card = document.createElement("div");
   card.className = "card";
   
-  // Get price for current city
-  const price = film.prices[currentCity] || film.prices["Astana"]; // Fallback
+  const price = film.prices[currentCity] || film.prices["Astana"];
   const t = translations[currentLang] || translations['ru'];
 
   card.dataset.name = film.title;
   card.dataset.price = price;
 
-  // Fix image path relative to current page location if deeper structure used
-  // But currently all images in /imgs so relative path works if base is consistent or we resolve logic
-  // Since we use ./imgs/ in data, let's keep it. 
-  // NOTE: If script runs on pages/*.html, ./imgs relative to page is ../imgs.
-  // Simple fix: calculate correct path prefix
   const isPagesDir = window.location.pathname.includes("/pages/");
   const imgPath = isPagesDir ? `.${film.image}` : film.image;
 
@@ -606,9 +599,7 @@ function createCard(film) {
 }
 
 
-// Global click listener for Cart and Dynamic elements
 document.addEventListener("click", function(e) {
-  // Add to cart
   if (e.target.classList.contains("add-to-cart") || e.target.closest(".add-to-cart")) {
     const card = e.target.closest(".card");
     const name = card.dataset.name;
@@ -624,14 +615,11 @@ document.addEventListener("click", function(e) {
     if(cartEl) cartEl.classList.add("active");
     renderCart();
   }
-  
-  // Close cart
+
   if (e.target.classList.contains("close-cart") || e.target.closest(".close-cart")) {
       const cartEl = document.getElementById("cart");
       if(cartEl) cartEl.classList.remove("active");
   }
-
-  // Cart Qty Change
   if (e.target.dataset.action === "inc-qty") {
       changeQty(e.target.dataset.name, 1);
   }
@@ -639,7 +627,7 @@ document.addEventListener("click", function(e) {
       changeQty(e.target.dataset.name, -1);
   }
 
-  // Order button
+  // либо вход либо отзыв
   if (e.target.classList.contains("order-btn")) {
       if (!currentUser) {
           const t = translations[currentLang] || translations['ru'];
@@ -655,8 +643,9 @@ document.addEventListener("click", function(e) {
            renderCart();
       }
   }
+  // тоже иишный код, возможно нужно будет переделать
 
-  // Side Menu Toggle
+  // side menu toggle
   if (e.target.closest(".menu")) {
       const sideMenu = document.querySelector(".side-menu");
       const overlay = document.querySelector(".menu-overlay");
@@ -664,7 +653,7 @@ document.addEventListener("click", function(e) {
       if(overlay) overlay.classList.add("active");
   }
 
-  // Close Side Menu
+  // close side menu
   if (e.target.classList.contains("side-menu-close") || e.target.classList.contains("menu-overlay")) {
       const sideMenu = document.querySelector(".side-menu");
       const overlay = document.querySelector(".menu-overlay");
@@ -672,22 +661,19 @@ document.addEventListener("click", function(e) {
       if(overlay) overlay.classList.remove("active");
   }
 
-  // City Dropdown Toggle
+  // city dropdown toggle
   if (e.target.closest(".city_change")) {
       const dropdown = document.querySelector(".city-dropdown");
       if (dropdown) {
-          // If clicking an option inside
           if(e.target.classList.contains("city-option")) {
               currentCity = e.target.dataset.city;
               saveState();
               dropdown.classList.remove("active");
           } else {
-              // Toggle open
               dropdown.classList.toggle("active");
           }
       }
   } else {
-      // Close dropdown if clicked outside
       const dropdown = document.querySelector(".city-dropdown");
       if(dropdown) dropdown.classList.remove("active");
   }
@@ -700,7 +686,6 @@ function updateUI() {
     const cityDropdown = document.querySelector(".city-dropdown");
     const t = translations[currentLang] || translations['ru'];
     
-    // Populate Dropdown first
     if (cityDropdown) {
         cityDropdown.innerHTML = "";
         cities.forEach(city => {
@@ -714,16 +699,12 @@ function updateUI() {
 
     if (cityDisplay) {
         const cityKey = `city.${currentCity.toLowerCase()}`;
-        // Explicitly set textContent to override any previous state
         cityDisplay.textContent = t[cityKey] || currentCity;
-        // Verify we aren't using data-i18n on this element in HTML, 
-        // effectively managing it manually here.
         cityDisplay.removeAttribute('data-i18n'); 
     }
 
     const langDisplay = document.querySelector(".lang_change");
     if (langDisplay) {
-        // Update the text in .current-lang span
         const currentLangSpan = langDisplay.querySelector(".current-lang");
         let langText = 'Rus';
         if(currentLang === 'en') langText = 'Eng';
@@ -734,12 +715,10 @@ function updateUI() {
     
     applyTranslations();
     
-    // Refresh content that depends on city/lang
     if (document.querySelector(".contacts-container")) {
         renderCinemas();
     }
     
-    // RENDER CARDS LOGIC WITH SEARCH FILTERS
     const searchInput = document.querySelector(".search");
     const filterSelect = document.querySelector(".search-filter");
     
@@ -752,7 +731,6 @@ function updateUI() {
         return matchesQuery && matchesCategory;
     });
 
-    // Clear previous renders to prevent visual bugs if multiple exist
     const c1 = document.getElementById("cards-container");
     const c2 = document.getElementById("cards-container2");
     const cCatalog = document.getElementById("catalog-container");
@@ -764,27 +742,14 @@ function updateUI() {
     renderCart();
     updateAuthUI();
     
-    // Render Profile if on profile page
     if(document.getElementById("profile-section")) {
         renderProfilePage();
     }
 }
 
 function updateAuthUI() {
-    // Update the "Personal Cabinet" link depending on AUTH state
-    // We want it to go to profile.html if logged in, bin.html if not.
-    // However, the files are static. 
-    // Easier approach: The clicked link is handled by valid page loads.
-    
-    // We can update the text maybe? 
-    // actually, let's leave the link to bin.html by default in HTML.
-    // bin.html redirects to profile if logged in.
-    // profile.html redirects to bin if not logged in.
-    // So the HREF can stay "bin.html" (or "pages/bin.html").
-    
-    // But we might want to update the Navbar Text from "Personal Cabinet" to "Profile" or Name?
-    // User didn't explicitly ask for this, but "Cabinet" is fine.
-}
+  // доделать
+ }
 
 function applyTranslations() {
     const t = translations[currentLang];
@@ -855,12 +820,10 @@ function renderCards(data, containerId) {
 document.addEventListener("DOMContentLoaded", () => {
     updateUI();
 
-    // Check if we are on Auth Page
     if(document.getElementById("auth-section")) {
         renderAuthPage();
     }
 
-    // Search & Filter Event Listeners
     const searchInput = document.querySelector(".search");
     const filterSelect = document.querySelector(".search-filter");
     
@@ -871,7 +834,6 @@ document.addEventListener("DOMContentLoaded", () => {
         filterSelect.addEventListener("change", updateUI);
     }
     
-    // Global Click for Language Dropdown
     document.addEventListener("click", (e) => {
        if (e.target.closest(".lang_change")) {
             const dropdown = document.querySelector(".lang-dropdown");
@@ -892,7 +854,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-// Form Validation
+// валидация формы
 const contactForm = document.getElementById("contactForm");
 if (contactForm) {
   contactForm.addEventListener("submit", function (e) {
@@ -926,19 +888,16 @@ if (contactForm) {
   });
 }
 
-// Page Transitions (removed fade-out for simplicity, keeping just logic)
 document.querySelectorAll(".nav-link").forEach(link => {
     link.addEventListener("click", function(e) {
         if (e.ctrlKey || e.metaKey) return;
         if (this.href === window.location.href) return;
-        
-        // Let standard navigation happen for simplicity and to avoid path issues
-        // e.preventDefault();
+
     });
 });
 
 
-// Cart Logic
+
 let cartData = {};
 
 function changeQty(name, delta) {
@@ -978,3 +937,12 @@ function renderCart() {
   const t = translations[currentLang] || translations['ru'];
   totalPrice.innerText = `${t["cart.total"]} ${total} ₸`; 
 }
+
+// Экспорт глобального объекта authSystem для использования в HTML (например, onclick="window.authSystem.logoutUser()")
+window.authSystem = {
+    users,
+    currentUser,
+    registerUser,
+    loginUser,
+    logoutUser
+};
