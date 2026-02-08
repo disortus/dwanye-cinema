@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Контакты - Dwanye Cinema</title>
+    <title>Профиль - Dwanye Cinema</title>
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/components.css">
+
 </head>
 <body>
     <header>
@@ -18,9 +19,9 @@
             </div>
             <div class="search_bar">
                 <select class="search-filter">
-                    <option value="all" data-i18n="search.all">All</option>
-                    <option value="popular" data-i18n="section.popular">Popular</option>
-                    <option value="recommended" data-i18n="section.recommendations">Recommended</option>
+                    <option value="all">All</option>
+                    <option value="popular">Popular</option>
+                    <option value="recommended">Recommended</option>
                 </select>
                 <div class="input_button">
                     <img src="../imgs/ic--sharp-search.svg" alt="search" loading="lazy" decoding="async" class="search_icon" />
@@ -48,8 +49,9 @@
                     </div>
                 </div>
                 <div class="phone">
-                    <img src="../imgs/streamline-flex--phone-solid.svg" alt="phone" loading="lazy" decoding="async"
-                        data-nimg="1" class="phone_icon">
+                     <a href="tel:+770100000000">
+                    <img src="../imgs/streamline-flex--phone-solid.svg" alt="phone" loading="lazy" decoding="async" class="phone_icon">
+                    </a>
                 </div>
                 <div class="menu">
                     <div class="menu_block">
@@ -64,9 +66,9 @@
             <nav>
                 <a href="../index.html" class = "nav-link" data-i18n="header.main">Главная</a>
                 <a href="./catalog.html" class = "nav-link" data-i18n="header.films">Фильмы</a>
-                <a href="./contacts.html" class="active nav-link" data-i18n="header.cinemas">Кинотеатры</a>
+                <a href="./contacts.html" class = "nav-link" data-i18n="header.cinemas">Кинотеатры</a>
                 <a href="./about.html" class = "nav-link" data-i18n="header.about">О нас</a>
-                <a href="./bin.html" class = "nav-link" data-i18n="header.cabinet">Личный кабинет</a>
+                <a href="./bin.html" class="active nav-link" data-i18n="header.cabinet">Личный кабинет</a>
             </nav>
         </div>
     </header>
@@ -84,59 +86,20 @@
         </nav>
     </div>
 
-    <main>
-        <section class="section">
-            <div class="sectionHeader">
-                <h2 data-i18n="contacts.title">Контакты</h2>
+    <main class="container" style="min-height: 60vh;">
+        <div class="profile-container">
+            <div class="profile-header">
+                <h1 data-i18n="bin.title">Личный кабинет</h1>
+                <p class="welcome-msg"><span data-i18n="bin.welcome">Добро пожаловать, </span> <strong id="user-name">User</strong>!</p>
             </div>
             
-            <div class="contacts-container">
-                <div class="contact-info">
-                    <h3 data-i18n="contacts.address">Наш адрес</h3>
-                    <p>г. Астана, ул. Примерная, 123</p>
-                    <p><span data-i18n="contacts.phone">Телефон</span>: +7 701 000 00 00</p>
-                    <p>Email: info@dwanye.kz</p>
-
-                                    <div class="working-hours">
-                        <h3 data-i18n="contacts.workHours">Режим работы</h3>
-                        <ul>
-                            <li><span>Пн-Пт</span> <span>10:00 - 02:00</span></li>
-                            <li><span>Сб-Вс</span> <span>09:00 - 03:00</span></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <form id="contactForm" class="contact-form">
-                    <h3 data-i18n="contacts.feedback">Обратная связь</h3>
-                    <div class="form-group">
-                        <label for="name" data-i18n="form.name">Ваше имя:</label>
-                        <input type="text" id="name" name="name" placeholder="Введите имя" data-i18n="form.name.placeholder">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email" data-i18n="form.email">Email:</label>
-                        <input type="email" id="email" name="email" placeholder="example@mail.com" data-i18n="form.email.placeholder">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message" data-i18n="form.message">Сообщение:</label>
-                        <textarea id="message" name="message" placeholder="Ваше сообщение" data-i18n="form.message.placeholder"></textarea>
-                    </div>
-
-                    <div class="form-group checkbox-group">
-                        <input type="checkbox" id="agreement" name="agreement">
-                        <label for="agreement" data-i18n="form.agreement">Я согласен на обработку персональных данных</label>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary" data-i18n="form.submit">Отправить</button>
-                    <div id="formMessage" class="form-message"></div>
-                </form>
+            <div class="profile-details">
+                <p><span data-i18n="bin.name">Имя</span>: <span id="display-name"></span></p>
+                <p><span data-i18n="bin.email">Email</span>: <span id="display-email"></span></p>
             </div>
             
-            <div class="map-placeholder">
-                [Здесь будет карта]
-            </div>
-        </section>
+            <button class="btn-logout" onclick="window.authSystem.logoutUser()" data-i18n="bin.logout">Выйти</button>
+        </div>
     </main>
 
     <footer class="site-footer">
@@ -160,5 +123,24 @@
     </footer>
 
     <script src="../js/script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const AS = window.authSystem;
+            
+            // Redirect if not logged in
+            if (!AS.currentUser) {
+                window.location.href = "bin.html";
+                return;
+            }
+
+            // Populate data
+            document.getElementById("user-name").textContent = AS.currentUser.name;
+            document.getElementById("display-name").textContent = AS.currentUser.name;
+            document.getElementById("display-email").textContent = AS.currentUser.email;
+
+            // Update translations
+            updateUI(); 
+        });
+    </script>
 </body>
 </html>
