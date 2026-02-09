@@ -620,6 +620,15 @@ document.addEventListener("click", function(e) {
       const cartEl = document.getElementById("cart");
       if(cartEl) cartEl.classList.remove("active");
   }
+
+    if (e.target.classList.contains("clear-cart") || e.target.closest(".clear-cart")) {
+        cartData = {};      // полностью очищаем корзину
+        renderCart();       // перерисовываем пустую корзину
+
+        const cartEl = document.getElementById("cart");
+        if(cartEl) cartEl.classList.remove("active"); // закрываем корзину
+    }
+
   if (e.target.dataset.action === "inc-qty") {
       changeQty(e.target.dataset.name, 1);
   }
@@ -946,3 +955,15 @@ window.authSystem = {
     loginUser,
     logoutUser
 };
+
+document.querySelectorAll(".nav-link").forEach(link => {
+    link.addEventListener("click", function(e) {
+        e.preventDefault();
+        let url = this.href;
+        document.body.classList.add("fade-out");
+
+        setTimeout(() => {
+            window.location.href = url;
+        }, 500);
+    });
+});
