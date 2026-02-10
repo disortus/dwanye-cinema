@@ -386,11 +386,10 @@ function registerUser(name, email, password) {
     if (users.find(u => u.email === email)) {
         return { success: false, message: "Email already exists" };
     }
-    const newUser = { name, email, password, history: [] };
+    const newUser = { name, email, password, history: [], loyaltyPoints: 0, joinDate: new Date().toISOString() };
     users.push(newUser);
     localStorage.setItem("users", JSON.stringify(users));
     
-
     currentUser = newUser;
     localStorage.setItem("currentUser", JSON.stringify(currentUser));
     return { success: true };
@@ -409,13 +408,12 @@ function loginUser(email, password) {
 function logoutUser() {
     currentUser = null;
     localStorage.removeItem("currentUser");
-    
-
-    const isPagesDir = window.location.pathname.includes("/pages/");
-    const target = isPagesDir ? "bin.html" : "pages/bin.html";
-    window.location.href = target;
+    updateUI();
+    // Force re-render of auth page if we are on it
+    if(document.getElementById("auth-section")) {
+        renderAuthPage();
+    }
 }
-
 
 window.handleLogin = function(e) {
     if(e) e.preventDefault();
@@ -452,13 +450,21 @@ window.handleRegister = function(e) {
     }
 }
 
-
 function renderAuthPage() {
     const authContainer = document.getElementById('auth-section');
     if(!authContainer) return;
 
     if (currentUser) {
-        window.location.href = "profile.html";
+        authContainer.innerHTML = `
+            <div class="auth-message" style="text-align: center; padding: 50px;">
+                <h2 data-i18n="bin.already_logged_in">Вы уже вошли</h2>
+                <p>Вы авторизованы как <strong>${currentUser.name}</strong></p>
+                <div style="margin-top: 20px;">
+                    <a href="profile.html" class="btn btn-primary" style="margin-right: 10px;" data-i18n="header.cabinet">Перейти в профиль</a>
+                    <button class="btn btn-secondary" onclick="window.authSystem.logoutUser()" data-i18n="bin.logout">Выйти</button>
+                </div>
+            </div>
+        `;
         return;
     }
 
@@ -530,16 +536,22 @@ function renderProfilePage() {
     const container = document.getElementById('profile-section');
     if(!container) return;
 
+    // Determine correct path for login link
+    const isPagesDir = window.location.pathname.includes("/pages/");
+    const loginLink = isPagesDir ? "bin.html" : "pages/bin.html";
+    const t = translations[currentLang] || translations['ru'];
+
     if (!currentUser) {
-        // Find correct path to bin.html
-        const isPagesDir = window.location.pathname.includes("/pages/");
-        const target = isPagesDir ? "bin.html" : "pages/bin.html";
-        window.location.href = target;
+        container.innerHTML = `
+            <div class="profile-container" style="text-align: center; padding: 50px;">
+                <h2>${t["bin.title"] || "Личный кабинет"}</h2>
+                <p style="margin: 20px 0; font-size: 1.2em;">Пожалуйста, войдите в систему</p>
+                <a href="${loginLink}" class="btn btn-primary">Войти / Регистрация</a>
+            </div>
+        `;
         return;
     }
     
-    const t = translations[currentLang] || translations['ru'];
-
     container.innerHTML = `
         <div class="profile-header">
             <h1 data-i18n="bin.title">${t["bin.title"] || "Личный кабинет"}</h1>
@@ -549,10 +561,56 @@ function renderProfilePage() {
             </p>
         </div>
         
-        <div class="profile-details">
-            <p><span data-i18n="bin.name">${t["bin.name"] || "Имя"}</span>: <span>${currentUser.name}</span></p>
-            <p><span data-i18n="bin.email">${t["bin.email"] || "Email"}</span>: <span>${currentUser.email}</span></p>
-        </div>
+        <div class="profile-grid">
+                <!-- User Info & Loyalty -->
+                <div class="profile-card user-info-card">
+                    <h2>Профиль</h2>
+                    <div class="profile-details">
+                        <!-- Name removed as requested -->
+                        <p><span data-i18n="bin.email">Email</span>: <strong>${currentUser.email}</strong></p>
+                        <hr>
+                        <h3>Bonus Club</h3>
+                        <p>Ваши баллы: <strong style="color: #ff7a00; font-size: 1.2em;">${currentUser.loyaltyPoints || 0}</strong></p>
+                        <p>Статус: <strong>${currentUser.loyaltyPoints > 1000 ? "Gold" : "Silver"}</strong></p>
+                    </div>
+                </div>
+
+                <!-- Settings -->
+                <div class="profile-card settings-card">
+                    <h2>Настройки</h2>
+                    <form onsubmit="event.preventDefault(); alert('Saved!');">
+                        <div class="form-group">
+                            <label>Сменить пароль</label>
+                            <input type="password" placeholder="Новый пароль">
+                        </div>
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="sub-news" checked>
+                            <label for="sub-news">Получать новости</label>
+                        </div>
+                        <button class="btn btn-primary btn-sm">Сохранить</button>
+                    </form>
+                </div>
+
+                <!-- Purchase History -->
+                <div class="profile-card history-card" style="grid-column: 1 / -1;">
+                    <h2>История покупок</h2>
+                    <div class="history-list">
+                        ${currentUser.history && currentUser.history.length > 0 ? 
+                            currentUser.history.map(h => `
+                                <div class="history-item">
+                                    <div class="history-date">${new Date(h.date).toLocaleDateString()}</div>
+                                    <div class="history-info">
+                                        <strong>${h.title}</strong><br>
+                                        ${h.details}
+                                    </div>
+                                    <div class="history-price">${h.price} ₸</div>
+                                </div>
+                            `).join('') 
+                            : '<p style="padding: 20px; color: #888;">История покупок пуста</p>'
+                        }
+                    </div>
+                </div>
+            </div>
         
         <button class="btn-logout" onclick="window.authSystem.logoutUser()" data-i18n="bin.logout">${t["bin.logout"] || "Выйти"}</button>
     `;
@@ -950,7 +1008,7 @@ function renderCart() {
 // Экспорт глобального объекта authSystem для использования в HTML (например, onclick="window.authSystem.logoutUser()")
 window.authSystem = {
     users,
-    currentUser,
+    get currentUser() { return currentUser; },
     registerUser,
     loginUser,
     logoutUser

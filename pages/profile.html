@@ -68,7 +68,8 @@
                 <a href="./catalog.html" class = "nav-link" data-i18n="header.films">Фильмы</a>
                 <a href="./contacts.html" class = "nav-link" data-i18n="header.cinemas">Кинотеатры</a>
                 <a href="./about.html" class = "nav-link" data-i18n="header.about">О нас</a>
-                <a href="./bin.html" class="active nav-link" data-i18n="header.cabinet">Личный кабинет</a>
+                <a href="./profile.html" class="active nav-link" data-i18n="header.cabinet">Личный кабинет</a>
+                <a href="./bin.html" class = "nav-link" data-i18n="bin.login">Вход</a>
             </nav>
         </div>
     </header>
@@ -82,7 +83,8 @@
             <a href="./catalog.html" class = "nav-link" data-i18n="header.films">Фильмы</a>
             <a href="./contacts.html" class = "nav-link" data-i18n="header.cinemas">Кинотеатры</a>
             <a href="./about.html" class = "nav-link" data-i18n="header.about">О нас</a>
-            <a href="./bin.html" class = "nav-link" data-i18n="header.cabinet">Личный кабинет</a>
+            <a href="./profile.html" class = "nav-link" data-i18n="header.cabinet">Личный кабинет</a>
+            <a href="./bin.html" class = "nav-link" data-i18n="bin.login">Вход</a>
         </nav>
     </div>
 
@@ -93,9 +95,66 @@
                 <p class="welcome-msg"><span data-i18n="bin.welcome">Добро пожаловать, </span> <strong id="user-name">User</strong>!</p>
             </div>
             
-            <div class="profile-details">
-                <p><span data-i18n="bin.name">Имя</span>: <span id="display-name"></span></p>
-                <p><span data-i18n="bin.email">Email</span>: <span id="display-email"></span></p>
+            <div class="profile-grid">
+                <!-- User Info & Loyalty -->
+                <div class="profile-card user-info-card">
+                    <h2>Профиль</h2>
+                    <div class="profile-details">
+                        <p><span data-i18n="bin.name">Имя</span>: <strong id="display-name"></strong></p>
+                        <p><span data-i18n="bin.email">Email</span>: <strong id="display-email"></strong></p>
+                        <hr>
+                        <h3>Bonus Club</h3>
+                        <p>Ваши баллы: <strong style="color: #ff7a00; font-size: 1.2em;">1250</strong></p>
+                        <p>Статус: <strong>Gold</strong></p>
+                    </div>
+                </div>
+
+                <!-- Settings -->
+                <div class="profile-card settings-card">
+                    <h2>Настройки</h2>
+                    <form onsubmit="event.preventDefault(); alert('Saved!');">
+                        <div class="form-group">
+                            <label>Сменить пароль</label>
+                            <input type="password" placeholder="Новый пароль">
+                        </div>
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="sub-news" checked>
+                            <label for="sub-news">Получать новости</label>
+                        </div>
+                        <button class="btn btn-primary btn-sm">Сохранить</button>
+                    </form>
+                </div>
+
+                <!-- Purchase History -->
+                <div class="profile-card history-card" style="grid-column: 1 / -1;">
+                    <h2>История покупок</h2>
+                    <div class="history-list">
+                        <div class="history-item">
+                            <div class="history-date">10.02.2025</div>
+                            <div class="history-info">
+                                <strong>Казнить нельзя помиловать</strong><br>
+                                2 билета, Ряд 5, Места 10-11
+                            </div>
+                            <div class="history-price">3000 ₸</div>
+                        </div>
+                        <div class="history-item">
+                            <div class="history-date">05.02.2025</div>
+                            <div class="history-info">
+                                <strong>Микки 17</strong><br>
+                                1 билет, Ряд 8, Место 4
+                            </div>
+                            <div class="history-price">1600 ₸</div>
+                        </div>
+                         <div class="history-item">
+                            <div class="history-date">28.01.2025</div>
+                            <div class="history-info">
+                                <strong>Попкорн (L), Кола (0.5)</strong><br>
+                                Бар
+                            </div>
+                            <div class="history-price">2100 ₸</div>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             <button class="btn-logout" onclick="window.authSystem.logoutUser()" data-i18n="bin.logout">Выйти</button>
@@ -127,11 +186,8 @@
         document.addEventListener("DOMContentLoaded", () => {
             const AS = window.authSystem;
             
-            // Redirect if not logged in
-            if (!AS.currentUser) {
-                window.location.href = "bin.html";
-                return;
-            }
+            // Redirect if not logged in - REMOVED for Guest View
+            // if (!AS.currentUser) { ... }
 
             // Populate data
             document.getElementById("user-name").textContent = AS.currentUser.name;

@@ -57,6 +57,11 @@ let currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
         Мы превращаем массив в строку JSON и сохраняем в браузере.
     5.  **Авто-логин:** Сразу присваиваем `currentUser = newUser` и сохраняем его в `localStorage`.
 
+    *Новые поля пользователя:*
+    *   `history`: Массив покупок (билеты, товары бара).
+    *   `loyaltyPoints`: Число баллов программы лояльности.
+    *   `joinDate`: Дата регистрации.
+
 ### Функция: `loginUser(email, password)`
 *   **Логика:**
     1.  Ищет пользователя:
@@ -69,13 +74,14 @@ let currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
 ### Функция: `logoutUser()`
 *   **Логика:**
     1.  Очищает переменную и хранилище (`currentUser = null`, `localStorage.removeItem`).
-    2.  **Редирект (Перенаправление):**
-        ```javascript
-        const isPagesDir = window.location.pathname.includes("/pages/");
-        const target = isPagesDir ? "bin.html" : "pages/bin.html";
-        window.location.href = target;
-        ```
-        Скрипт проверяет URL (`window.location.pathname`). Если мы уже в папке `pages`, путь будет просто `bin.html`. Если мы в корне (на главной), путь будет `pages/bin.html`. Это позволяет функции работать корректно с любой страницы сайта.
+    2.  **Без Перезагрузки:** Вызывает `updateUI()` и при необходимости перерисовывает форму входа (`renderAuthPage`), если пользователь находится на странице авторизации. Это обеспечивает мгновенный отклик интерфейса без лишних сетевых запросов.
+
+### Функция: `renderAuthPage()` (Страница Входа)
+*   **Логика:**
+    *   Проверяет `currentUser`.
+    *   **Если вошел:** Показывает сообщение "Вы уже вошли" с кнопками "В профиль" и "Выйти". Не делает авто-редирект, чтобы не путать пользователя.
+    *   **Если гость:** Рисует форму входа (`renderLoginView`).
+
 
 ---
 
@@ -173,14 +179,20 @@ let currentLang = localStorage.getItem("currentLang") || "ru";
 
 ## 6. Профиль и Страницы (`renderProfilePage`)
 
+
+
 ### Функция: `renderProfilePage()`
 *   **Guard Clause (Охранное условие):**
     ```javascript
     if (!currentUser) { window.location.href = ...; return; }
     ```
-    Если пользователь не залогинен, функция прерывается и перекидывает на страницу входа. Это защищает страницу профиля от неавторизованного доступа.
+    If user is not logged in: Shows "Please log in" message (Guest View).
+*   **Новые Секции Профиля:**
+    *   **Профиль:** Отображает email, статус Bonus Club (Gold/Silver) и баллы. (Имя скрыто по требованию).
+    *   **Настройки:** Форма смены пароля и подписки на новости (имитация).
+    *   **История покупок:** Список последних транзакций (фильм, дата, цена).
 *   **Template Literals:**
-    Использует обратные кавычки `` `...` `` для вставки переменных `${currentUser.name}` прямо в HTML-строку.
+    Использует обратные кавычки `` `...` `` для динамической генерации HTML-контента на основе данных пользователя.
 
 ---
 
