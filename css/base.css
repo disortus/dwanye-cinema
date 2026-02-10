@@ -12,6 +12,11 @@ body {
 
 }
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body.fade-out {
     opacity: 0;
   }
@@ -115,7 +120,7 @@ body.fade-out {
 .order-btn:hover { background: #555; }
 
 
-  /*  */
+/* ============ */
 
 header {
   width: 100%;
@@ -164,22 +169,12 @@ button {
 }
 
 .logo_img {
-  width: 199px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   flex-shrink: 0;
   margin-left: 50px;
 }
 
-.input_button {
-  width: 20;
-  height: 20;
-  color: transparent;
-  left: 16px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-}
 
 .search_icon {
   color: transparent;
@@ -190,7 +185,7 @@ button {
   width: auto;
   flex-basis: auto;
   flex-grow: 1;
-  max-width: 400px;
+  max-width: 500px;
   margin-right: 16px;
   position: relative;
 }
@@ -206,6 +201,16 @@ button {
   line-height: 125%;
   outline: none;
   color: #151516;
+  width: 100%;
+  padding-left: 44px;         
+  height: 40px;
+  border-radius: 24px;
+  border: 1px solid #ccc;
+
+  background-image: url("../imgs/ic--sharp-search.svg");
+  background-repeat: no-repeat;
+  background-position: 16px center;
+  background-size: 20px 20px;
 }
 
 img,
@@ -484,6 +489,7 @@ svg {
   margin: 0;
 }
 
+/* ============== */
 /* Адаптив */
 @media (min-width: 768px) {
   .footer-top {
@@ -494,3 +500,95 @@ svg {
     margin: 0 auto 15px;
   }
 }
+
+@media (max-width: 768px) {
+  .upper_nav {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .logo_link {
+    width: auto;
+    padding: 0;
+  }
+
+  .logo_img {
+    margin-left: 0;
+    width: 150px;
+    height: 60px;
+  }
+
+  .search_bar {
+    order: 3;
+    width: 100%;
+    max-width: 100%;
+    margin-right: 0;
+  }
+
+  .nav_block {
+    padding: 6px 8px;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbartop {
+    padding: 0 20px;
+  }
+
+  .navbartop nav {
+    flex-direction: column;
+  }
+
+  .navbartop nav a {
+    padding: 12px 0;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cart {
+    right: 10px;
+    left: 10px;
+    width: auto;
+    max-height: 60vh;
+  }
+
+  .cart-header h2 {
+    font-size: 1.1rem;
+  }
+
+  .cart-item span {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-socials {
+    gap: 10px;
+  }
+
+  .footer-socials .social-link {
+    font-size: 13px;
+  }
+
+  .footer-phone a {
+    font-size: 14px;
+  }
+}
+

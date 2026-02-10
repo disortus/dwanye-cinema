@@ -1,3 +1,4 @@
+// фильмы
 const films = [
   {
     id: 1,
@@ -7,10 +8,10 @@ const films = [
     image: "./imgs/kaznit-nelsya-pomilovat.jpg",
     category: "popular",
     prices: {
-        "Astana": 1500,
-        "Almaty": 1800,
-        "Shymkent": 1200
-    }
+      Astana: 1500,
+      Almaty: 1800,
+      Shymkent: 1200,
+    },
   },
   {
     id: 2,
@@ -20,10 +21,10 @@ const films = [
     image: "./imgs/silent-hill.jpg",
     category: "popular",
     prices: {
-        "Astana": 1600,
-        "Almaty": 2000,
-        "Shymkent": 1300
-    }
+      Astana: 1600,
+      Almaty: 2000,
+      Shymkent: 1300,
+    },
   },
   {
     id: 3,
@@ -32,10 +33,10 @@ const films = [
     image: "./imgs/letspystya.jpg",
     category: "popular",
     prices: {
-        "Astana": 1400,
-        "Almaty": 1700,
-        "Shymkent": 1100
-    }
+      Astana: 1400,
+      Almaty: 1700,
+      Shymkent: 1100,
+    },
   },
   {
     id: 4,
@@ -44,10 +45,10 @@ const films = [
     image: "./imgs/grenlandia.jpg",
     category: "popular",
     prices: {
-        "Astana": 1500,
-        "Almaty": 1800,
-        "Shymkent": 1200
-    }
+      Astana: 1500,
+      Almaty: 1800,
+      Shymkent: 1200,
+    },
   },
   {
     id: 5,
@@ -57,10 +58,10 @@ const films = [
     image: "./imgs/dune2.jpg",
     category: "recommended",
     prices: {
-        "Astana": 1300,
-        "Almaty": 1500,
-        "Shymkent": 1000
-    }
+      Astana: 1300,
+      Almaty: 1500,
+      Shymkent: 1000,
+    },
   },
   {
     id: 6,
@@ -70,10 +71,10 @@ const films = [
     image: "./imgs/oppenheimer.jpg",
     category: "recommended",
     prices: {
-        "Astana": 1300,
-        "Almaty": 1600,
-        "Shymkent": 1100
-    }
+      Astana: 1300,
+      Almaty: 1600,
+      Shymkent: 1100,
+    },
   },
   {
     id: 7,
@@ -83,19 +84,20 @@ const films = [
     image: "./imgs/blade-runner.jpg",
     category: "recommended",
     prices: {
-        "Astana": 1400,
-        "Almaty": 1700,
-        "Shymkent": 1100
-    }
+      Astana: 1400,
+      Almaty: 1700,
+      Shymkent: 1100,
+    },
   },
   // анрил рандом фильмы от иишки
   {
     id: 8,
     title: "Носферату (2025)",
-    description: "Готическая история об одержимости между молодой женщиной и страшным вампиром.",
+    description:
+      "Готическая история об одержимости между молодой женщиной и страшным вампиром.",
     image: "./imgs/nosferatu.jpg",
     category: "popular",
-    prices: { "Astana": 1500, "Almaty": 1900, "Shymkent": 1200 }
+    prices: { Astana: 1500, Almaty: 1900, Shymkent: 1200 },
   },
   {
     id: 9,
@@ -103,7 +105,7 @@ const films = [
     description: "Клон участвует в колонизации ледяного мира Нильфхейм.",
     image: "./imgs/mickey17.jpg",
     category: "recommended",
-    prices: { "Astana": 1600, "Almaty": 2000, "Shymkent": 1300 }
+    prices: { Astana: 1600, Almaty: 2000, Shymkent: 1300 },
   },
   {
     id: 10,
@@ -111,7 +113,7 @@ const films = [
     description: "Спин-офф вселенной Джона Уика о наемной убийце.",
     image: "./imgs/ballerina.jpg",
     category: "popular",
-    prices: { "Astana": 1500, "Almaty": 1800, "Shymkent": 1200 }
+    prices: { Astana: 1500, Almaty: 1800, Shymkent: 1200 },
   },
   {
     id: 11,
@@ -119,7 +121,7 @@ const films = [
     description: "Эпическая битва, сформировавшая Средиземье.",
     image: "./imgs/lotr_anime.jpg",
     category: "recommended",
-    prices: { "Astana": 1400, "Almaty": 1700, "Shymkent": 1100 }
+    prices: { Astana: 1400, Almaty: 1700, Shymkent: 1100 },
   },
   {
     id: 12,
@@ -127,255 +129,271 @@ const films = [
     description: "Новая глава саги Джеймса Кэмерона на Пандоре.",
     image: "./imgs/avatar3.jpg",
     category: "popular",
-    prices: { "Astana": 2000, "Almaty": 2500, "Shymkent": 1800 }
-  }
+    prices: { Astana: 2000, Almaty: 2500, Shymkent: 1800 },
+  },
 ];
 
 const cities = ["Astana", "Almaty", "Shymkent"];
 
+// кинотеатры
 const cinemas = [
-    {
-        name: "Dwanye Cinema - Mega Silk Way",
-        city: "Astana",
-        address: "пр. Кабанбай батыра, 62",
-        phone: "+7 701 111 22 33",
-        workHours: "10:00 - 02:00",
-        coords: "51.089, 71.413"
-    },
-    {
-        name: "Dwanye Cinema - Keruen",
-        city: "Astana",
-        address: "ул. Достык, 9",
-        phone: "+7 701 444 55 66",
-        workHours: "10:00 - 03:00",
-        coords: "51.128, 71.430"
-    },
-    {
-        name: "Dwanye Cinema - Dostyk Plaza",
-        city: "Almaty",
-        address: "мкр. Самал-2, 111",
-        phone: "+7 727 222 33 44",
-        workHours: "10:00 - 02:00",
-        coords: "43.233, 76.956"
-    },
-    {
-        name: "Dwanye Cinema - Shymkent Plaza",
-        city: "Shymkent",
-        address: "пл. Аль-Фараби, 3/1",
-        phone: "+7 725 255 66 77",
-        workHours: "10:00 - 01:00",
-        coords: "42.315, 69.590"
-    }
+  {
+    name: "Dwanye Cinema - Mega Silk Way",
+    city: "Astana",
+    address: "пр. Кабанбай батыра, 62",
+    phone: "+7 701 111 22 33",
+    workHours: "10:00 - 02:00",
+    coords: "51.089, 71.413",
+  },
+  {
+    name: "Dwanye Cinema - Keruen",
+    city: "Astana",
+    address: "ул. Достык, 9",
+    phone: "+7 701 444 55 66",
+    workHours: "10:00 - 03:00",
+    coords: "51.128, 71.430",
+  },
+  {
+    name: "Dwanye Cinema - Dostyk Plaza",
+    city: "Almaty",
+    address: "мкр. Самал-2, 111",
+    phone: "+7 727 222 33 44",
+    workHours: "10:00 - 02:00",
+    coords: "43.233, 76.956",
+  },
+  {
+    name: "Dwanye Cinema - Shymkent Plaza",
+    city: "Shymkent",
+    address: "пл. Аль-Фараби, 3/1",
+    phone: "+7 725 255 66 77",
+    workHours: "10:00 - 01:00",
+    coords: "42.315, 69.590",
+  },
 ];
 
+// переводы
 const translations = {
-    en: {
-        "header.main": "Home",
-        "header.films": "Movies",
-        "header.cinemas": "Cinemas",
-        "header.about": "About Us",
-        "header.cabinet": "My Account",
-        "hero.title": "DIVE INTO THE WORLD OF CINEMA",
-        "hero.subtitle": "Best new releases, comfortable halls and unforgettable emotions await you at Dwanye Cinema",
-        "hero.btn": "View Schedule",
-        "section.popular": "POPULAR",
-        "section.recommendations": "RECOMMENDED",
-        "section.why_us": "Why Choose Us",
-        "feature.popcorn": "Delicious Popcorn",
-        "feature.popcorn_desc": "Only fresh popcorn with various flavors.",
-        "feature.comfort": "Comfort",
-        "feature.comfort_desc": "Soft recliner seats for complete relaxation.",
-        "feature.sound": "Dolby Atmos Sound",
-        "feature.sound_desc": "Immerse yourself in the movie atmosphere with surround sound.",
-        "feature.online_tickets": "Online Tickets",
-        "feature.online_tickets_desc": "Buy without queues through our website.",
-        "footer.rights": "(c) 2025 Dwanye Cinema. All rights reserved.",
-        "search.all": "All Categories",
-        "search.placeholder": "Search films...",
-        "bin.title": "Personal Account",
-        "contacts.title": "Contacts",
-        "contacts.address": "Our Address",
-        "contacts.phone": "Phone",
-        "contacts.workHours": "Working Hours",
-        "contacts.feedback": "Feedback",
-        "form.name": "Your Name:",
-        "form.name.placeholder": "Enter name",
-        "form.email": "Email:",
-        "form.email.placeholder": "example@mail.com",
-        "form.message": "Message:",
-        "form.message.placeholder": "Your message",
-        "form.agreement": "I agree to the processing of personal data",
-        "form.submit": "Send",
-        "about.title": "About Company",
-        "bin.title": "Personal Account",
-        "bin.message": "This section is under development.",
-        "bin.back": "Back to Home",
-        "bin.login": "Login",
-        "bin.register": "Register",
-        "bin.logout": "Logout",
-        "bin.email": "Email",
-        "bin.password": "Password",
-        "bin.name": "Name",
-        "bin.login_btn": "Sign In",
-        "bin.register_btn": "Sign Up",
-        "bin.welcome": "Welcome, ",
-        "bin.no_account": "Don't have an account?",
-        "bin.has_account": "Already have an account?",
-        "bin.login_required": "Please login to place an order",
-        "cart.title": "Cart",
-        "cart.total": "Total: ",
-        "cart.order": "Order now",
-        "city.astana": "Astana",
-        "city.almaty": "Almaty",
-        "city.shymkent": "Shymkent",
-        "cinema_header": "Cinemas - ",
-        "no_cinemas": "No cinemas in this city yet.",
-        "price_from": "from",
-        "about.text1": "Kinopark — the largest cinema chain in Kazakhstan, offering viewers modern screening technologies, high level of service and comfortable halls.",
-        "about.text2": "The company actively develops cinema culture, introducing IMAX, laser projectors, premium hall formats and convenient digital services for ticket purchase.",
-        "about.text3": "Today Kinopark is dozens of cinemas, thousands of viewers daily and constant development of the entertainment industry.",
-        "about.stats.cinemas": "Cinemas across the country",
-        "about.stats.halls": "Halls with best equipment",
-        "about.stats.viewers": "Happy viewers annually",
-        "about.btn.view_cinemas": "View cinema list"
-    },
-    ru: {
-        "header.main": "Главная",
-        "header.films": "Фильмы",
-        "header.cinemas": "Кинотеатры",
-        "header.about": "О нас",
-        "header.cabinet": "Личный кабинет",
-        "hero.title": "ПОГРУЗИСЬ В МИР КИНО",
-        "hero.subtitle": "Лучшие новинки, комфортные залы и незабываемые эмоции ждут тебя в Dwanye Cinema",
-        "hero.btn": "Смотреть афишу",
-        "section.popular": "ПОПУЛЯРНОЕ",
-        "section.recommendations": "РЕКОМЕНДАЦИИ",
-        "section.why_us": "Почему выбирают нас",
-        "feature.popcorn": "Вкуснейший попкорн",
-        "feature.popcorn_desc": "Только свежий попкорн с разнообразными вкусами.",
-        "feature.comfort": "Комфорт",
-        "feature.comfort_desc": "Мягкие кресла-реклайнеры для полного расслабления.",
-        "feature.sound": "Звук Dolby Atmos",
-        "feature.sound_desc": "Погружение в атмосферу фильма с объемным звуком.",
-        "feature.online_tickets": "Онлайн билеты",
-        "feature.online_tickets_desc": "Покупка без очередей через наш сайт.",
-        "footer.rights": "(c) 2025 Компания «Dwanye Cinema». Все права защищены.",
-        "search.all": "Все категории",
-        "search.placeholder": "Поиск фильмов...",
-        "bin.title": "Личный кабинет",
-        "contacts.address": "Наш адрес",
-        "contacts.phone": "Телефон",
-        "contacts.workHours": "Режим работы",
-        "contacts.feedback": "Обратная связь",
-        "form.name": "Ваше имя:",
-        "form.name.placeholder": "Введите имя",
-        "form.email": "Email:",
-        "form.email.placeholder": "example@mail.com",
-        "form.message": "Сообщение:",
-        "form.message.placeholder": "Ваше сообщение",
-        "form.agreement": "Я согласен на обработку персональных данных",
-        "form.submit": "Отправить",
-        "about.title": "О компании",
-        "bin.title": "Личный кабинет",
-        "bin.message": "Этот раздел находится в разработке.",
-        "bin.back": "Вернуться на главную",
-        "bin.login": "Вход",
-        "bin.register": "Регистрация",
-        "bin.logout": "Выйти",
-        "bin.email": "Email",
-        "bin.password": "Пароль",
-        "bin.name": "Имя",
-        "bin.login_btn": "Войти",
-        "bin.register_btn": "Зарегистрироваться",
-        "bin.welcome": "Добро пожаловать, ",
-        "bin.no_account": "Нет аккаунта?",
-        "bin.has_account": "Уже есть аккаунт?",
-        "bin.login_required": "Пожалуйста, войдите в систему для оформления заказа",
-        "cart.title": "Корзина",
-        "cart.total": "Итого: ",
-        "cart.order": "Заказать сейчас",
-        "city.astana": "Астана",
-        "city.almaty": "Алматы",
-        "city.shymkent": "Шымкент",
-        "cinema_header": "Кинотеатры - ",
-        "no_cinemas": "В этом городе пока нет наших кинотеатров.",
-        "price_from": "от",
-        "about.text1": "Kinopark — крупнейшая сеть кинотеатров в Казахстане, предлагающая зрителям современные технологии кинопоказа, высокий уровень сервиса и комфортные залы.",
-        "about.text2": "Компания активно развивает культуру кино, внедряя IMAX, лазерные проекторы, премиальные форматы залов и удобные цифровые сервисы для покупки билетов.",
-        "about.text3": "Сегодня Kinopark — это десятки кинотеатров, тысячи зрителей ежедневно и постоянное развитие индустрии развлечений.",
-        "about.stats.cinemas": "Кинотеатров по всей стране",
-        "about.stats.halls": "Залов с лучшим оборудованием",
-        "about.stats.viewers": "Счастливых зрителей ежегодно",
-        "about.btn.view_cinemas": "Смотреть список кинотеатров"
-    },
-    kk: {
-        "header.main": "Басты бет",
-        "header.films": "Фильмдер",
-        "header.cinemas": "Кинотеатрлар",
-        "header.about": "Біз туралы",
-        "header.cabinet": "Жеке кабинет",
-        "hero.title": "КИНО ӘЛЕМІНЕ ЕН",
-        "hero.subtitle": "Dwanye Cinema-да ең жақсы жаңалықтар, жайлы залдар және ұмытылмас сезімдер күтеді",
-        "hero.btn": "Кестесін көру",
-        "section.popular": "ТАНЫМАЛ",
-        "section.recommendations": "ҰСЫНЫЛАТЫН",
-        "section.why_us": "Неге бізді таңдайды",
-        "feature.popcorn": "Дәмді попкорн",
-        "feature.popcorn_desc": "Тек түрлі дәмдері бар жаңа піскен попкорн.",
-        "feature.comfort": "Жайлылық",
-        "feature.comfort_desc": "Толық демалуға арналған жұмсақ орындықтар.",
-        "feature.sound": "Dolby Atmos дыбысы",
-        "feature.sound_desc": "Көлемді дыбыспен фильм атмосферасына ену.",
-        "feature.online_tickets": "Онлайн билеттер",
-        "feature.online_tickets_desc": "Кезексіз біздің сайт арқылы сатып алу.",
-        "footer.rights": "(c) 2025 Dwanye Cinema. Барлық құқықтар қорғалған.",
-        "search.placeholder": "Фильмдерді іздеу...",
-        "contacts.title": "Байланыс",
-        "contacts.address": "Біздің мекенжай",
-        "contacts.phone": "Телефон",
-        "contacts.workHours": "Жұмыс уақыты",
-        "contacts.feedback": "Кері байланыс",
-        "form.name": "Сіздің атыңыз:",
-        "form.name.placeholder": "Атыңызды енгізіңіз",
-        "form.email": "Email:",
-        "form.email.placeholder": "example@mail.com",
-        "form.message": "Хабарлама:",
-        "form.message.placeholder": "Сіздің хабарламаңыз",
-        "form.agreement": "Мен дербес деректерді өңдеуге келісемін",
-        "form.submit": "Жіберу",
-        "about.title": "Компания туралы",
-        "bin.title": "Жеке кабинет",
-        "bin.message": "Бұл бөлім әзірленуде.",
-        "bin.back": "Басты бетке",
-        "bin.login": "Кіру",
-        "bin.register": "Тіркелу",
-        "bin.logout": "Шығу",
-        "bin.email": "Email",
-        "bin.password": "Құпия сөз",
-        "bin.name": "Аты",
-        "bin.login_btn": "Кіру",
-        "bin.register_btn": "Тіркелу",
-        "bin.welcome": "Қош келдіңіз, ",
-        "bin.no_account": "Аккаунтыңыз жоқ па?",
-        "bin.has_account": "Аккаунтыңыз бар ма?",
-        "bin.login_required": "Тапсырыс беру үшін жүйеге кіріңіз",
-        "cart.title": "Себет",
-        "cart.total": "Барлығы: ",
-        "cart.order": "Қазір тапсырыс беру",
-        "city.astana": "Астана",
-        "city.almaty": "Алматы",
-        "city.shymkent": "Шымкент",
-        "cinema_header": "Кинотеатрлар - ",
-        "no_cinemas": "Бұл қалада әзірге біздің кинотеатрлар жоқ.",
-        "price_from": "бастап",
-        "about.text1": "Kinopark — Қазақстандағы ең ірі кинотеатрлар желісі, көрермендерге заманауи кино көрсету технологияларын, жоғары деңгейдегі қызмет пен жайлы залдарды ұсынады.",
-        "about.text2": "Компания IMAX, лазерлік проекторлар, премиум зал форматтарын және билет сатып алуға арналған ыңғайлы цифрлық сервистерді енгізу арқылы кино мәдениетін белсенді дамытуда.",
-        "about.text3": "Бүгінгі таңда Kinopark — бұл ондаған кинотеатрлар, күн сайын мыңдаған көрермендер және ойын-сауық индустриясының тұрақты дамуы.",
-        "about.stats.cinemas": "Ел бойынша кинотеатрлар",
-        "about.stats.halls": "Ең жақсы жабдықталған залдар",
-        "about.stats.viewers": "Жыл сайынғы бақытты көрермендер",
-        "about.btn.view_cinemas": "Кинотеатрлар тізімін көру"
-    }
+  en: {
+    "header.main": "Home",
+    "header.films": "Movies",
+    "header.cinemas": "Cinemas",
+    "header.about": "About Us",
+    "header.cabinet": "My Account",
+    "hero.title": "DIVE INTO THE WORLD OF CINEMA",
+    "hero.subtitle":
+      "Best new releases, comfortable halls and unforgettable emotions await you at Dwanye Cinema",
+    "hero.btn": "View Schedule",
+    "section.popular": "POPULAR",
+    "section.recommendations": "RECOMMENDED",
+    "section.why_us": "Why Choose Us",
+    "feature.popcorn": "Delicious Popcorn",
+    "feature.popcorn_desc": "Only fresh popcorn with various flavors.",
+    "feature.comfort": "Comfort",
+    "feature.comfort_desc": "Soft recliner seats for complete relaxation.",
+    "feature.sound": "Dolby Atmos Sound",
+    "feature.sound_desc":
+      "Immerse yourself in the movie atmosphere with surround sound.",
+    "feature.online_tickets": "Online Tickets",
+    "feature.online_tickets_desc": "Buy without queues through our website.",
+    "footer.rights": "(c) 2025 Dwanye Cinema. All rights reserved.",
+    "search.all": "All Categories",
+    "search.placeholder": "Search films...",
+    "bin.title": "Personal Account",
+    "contacts.title": "Contacts",
+    "contacts.address": "Our Address",
+    "contacts.phone": "Phone",
+    "contacts.workHours": "Working Hours",
+    "contacts.feedback": "Feedback",
+    "form.name": "Your Name:",
+    "form.name.placeholder": "Enter name",
+    "form.email": "Email:",
+    "form.email.placeholder": "example@mail.com",
+    "form.message": "Message:",
+    "form.message.placeholder": "Your message",
+    "form.agreement": "I agree to the processing of personal data",
+    "form.submit": "Send",
+    "about.title": "About Company",
+    "bin.title": "Personal Account",
+    "bin.message": "This section is under development.",
+    "bin.back": "Back to Home",
+    "bin.login": "Login",
+    "bin.register": "Register",
+    "bin.logout": "Logout",
+    "bin.email": "Email",
+    "bin.password": "Password",
+    "bin.name": "Name",
+    "bin.login_btn": "Sign In",
+    "bin.register_btn": "Sign Up",
+    "bin.welcome": "Welcome, ",
+    "bin.no_account": "Don't have an account?",
+    "bin.has_account": "Already have an account?",
+    "bin.login_required": "Please login to place an order",
+    "cart.title": "Cart",
+    "cart.total": "Total: ",
+    "cart.order": "Order now",
+    "city.astana": "Astana",
+    "city.almaty": "Almaty",
+    "city.shymkent": "Shymkent",
+    cinema_header: "Cinemas - ",
+    no_cinemas: "No cinemas in this city yet.",
+    price_from: "from",
+    "about.text1":
+      "Kinopark — the largest cinema chain in Kazakhstan, offering viewers modern screening technologies, high level of service and comfortable halls.",
+    "about.text2":
+      "The company actively develops cinema culture, introducing IMAX, laser projectors, premium hall formats and convenient digital services for ticket purchase.",
+    "about.text3":
+      "Today Kinopark is dozens of cinemas, thousands of viewers daily and constant development of the entertainment industry.",
+    "about.stats.cinemas": "Cinemas across the country",
+    "about.stats.halls": "Halls with best equipment",
+    "about.stats.viewers": "Happy viewers annually",
+    "about.btn.view_cinemas": "View cinema list",
+  },
+  ru: {
+    "header.main": "Главная",
+    "header.films": "Фильмы",
+    "header.cinemas": "Кинотеатры",
+    "header.about": "О нас",
+    "header.cabinet": "Личный кабинет",
+    "hero.title": "ПОГРУЗИСЬ В МИР КИНО",
+    "hero.subtitle":
+      "Лучшие новинки, комфортные залы и незабываемые эмоции ждут тебя в Dwanye Cinema",
+    "hero.btn": "Смотреть афишу",
+    "section.popular": "ПОПУЛЯРНОЕ",
+    "section.recommendations": "РЕКОМЕНДАЦИИ",
+    "section.why_us": "Почему выбирают нас",
+    "feature.popcorn": "Вкуснейший попкорн",
+    "feature.popcorn_desc": "Только свежий попкорн с разнообразными вкусами.",
+    "feature.comfort": "Комфорт",
+    "feature.comfort_desc":
+      "Мягкие кресла-реклайнеры для полного расслабления.",
+    "feature.sound": "Звук Dolby Atmos",
+    "feature.sound_desc": "Погружение в атмосферу фильма с объемным звуком.",
+    "feature.online_tickets": "Онлайн билеты",
+    "feature.online_tickets_desc": "Покупка без очередей через наш сайт.",
+    "footer.rights": "(c) 2025 Компания «Dwanye Cinema». Все права защищены.",
+    "search.all": "Все категории",
+    "search.placeholder": "Поиск фильмов...",
+    "bin.title": "Личный кабинет",
+    "contacts.address": "Наш адрес",
+    "contacts.phone": "Телефон",
+    "contacts.workHours": "Режим работы",
+    "contacts.feedback": "Обратная связь",
+    "form.name": "Ваше имя:",
+    "form.name.placeholder": "Введите имя",
+    "form.email": "Email:",
+    "form.email.placeholder": "example@mail.com",
+    "form.message": "Сообщение:",
+    "form.message.placeholder": "Ваше сообщение",
+    "form.agreement": "Я согласен на обработку персональных данных",
+    "form.submit": "Отправить",
+    "about.title": "О компании",
+    "bin.title": "Личный кабинет",
+    "bin.message": "Этот раздел находится в разработке.",
+    "bin.back": "Вернуться на главную",
+    "bin.login": "Вход",
+    "bin.register": "Регистрация",
+    "bin.logout": "Выйти",
+    "bin.email": "Email",
+    "bin.password": "Пароль",
+    "bin.name": "Имя",
+    "bin.login_btn": "Войти",
+    "bin.register_btn": "Зарегистрироваться",
+    "bin.welcome": "Добро пожаловать, ",
+    "bin.no_account": "Нет аккаунта?",
+    "bin.has_account": "Уже есть аккаунт?",
+    "bin.login_required": "Пожалуйста, войдите в систему для оформления заказа",
+    "cart.title": "Корзина",
+    "cart.total": "Итого: ",
+    "cart.order": "Заказать сейчас",
+    "city.astana": "Астана",
+    "city.almaty": "Алматы",
+    "city.shymkent": "Шымкент",
+    cinema_header: "Кинотеатры - ",
+    no_cinemas: "В этом городе пока нет наших кинотеатров.",
+    price_from: "от",
+    "about.text1":
+      "Kinopark — крупнейшая сеть кинотеатров в Казахстане, предлагающая зрителям современные технологии кинопоказа, высокий уровень сервиса и комфортные залы.",
+    "about.text2":
+      "Компания активно развивает культуру кино, внедряя IMAX, лазерные проекторы, премиальные форматы залов и удобные цифровые сервисы для покупки билетов.",
+    "about.text3":
+      "Сегодня Kinopark — это десятки кинотеатров, тысячи зрителей ежедневно и постоянное развитие индустрии развлечений.",
+    "about.stats.cinemas": "Кинотеатров по всей стране",
+    "about.stats.halls": "Залов с лучшим оборудованием",
+    "about.stats.viewers": "Счастливых зрителей ежегодно",
+    "about.btn.view_cinemas": "Смотреть список кинотеатров",
+  },
+  kk: {
+    "header.main": "Басты бет",
+    "header.films": "Фильмдер",
+    "header.cinemas": "Кинотеатрлар",
+    "header.about": "Біз туралы",
+    "header.cabinet": "Жеке кабинет",
+    "hero.title": "КИНО ӘЛЕМІНЕ ЕН",
+    "hero.subtitle":
+      "Dwanye Cinema-да ең жақсы жаңалықтар, жайлы залдар және ұмытылмас сезімдер күтеді",
+    "hero.btn": "Кестесін көру",
+    "section.popular": "ТАНЫМАЛ",
+    "section.recommendations": "ҰСЫНЫЛАТЫН",
+    "section.why_us": "Неге бізді таңдайды",
+    "feature.popcorn": "Дәмді попкорн",
+    "feature.popcorn_desc": "Тек түрлі дәмдері бар жаңа піскен попкорн.",
+    "feature.comfort": "Жайлылық",
+    "feature.comfort_desc": "Толық демалуға арналған жұмсақ орындықтар.",
+    "feature.sound": "Dolby Atmos дыбысы",
+    "feature.sound_desc": "Көлемді дыбыспен фильм атмосферасына ену.",
+    "feature.online_tickets": "Онлайн билеттер",
+    "feature.online_tickets_desc": "Кезексіз біздің сайт арқылы сатып алу.",
+    "footer.rights": "(c) 2025 Dwanye Cinema. Барлық құқықтар қорғалған.",
+    "search.placeholder": "Фильмдерді іздеу...",
+    "contacts.title": "Байланыс",
+    "contacts.address": "Біздің мекенжай",
+    "contacts.phone": "Телефон",
+    "contacts.workHours": "Жұмыс уақыты",
+    "contacts.feedback": "Кері байланыс",
+    "form.name": "Сіздің атыңыз:",
+    "form.name.placeholder": "Атыңызды енгізіңіз",
+    "form.email": "Email:",
+    "form.email.placeholder": "example@mail.com",
+    "form.message": "Хабарлама:",
+    "form.message.placeholder": "Сіздің хабарламаңыз",
+    "form.agreement": "Мен дербес деректерді өңдеуге келісемін",
+    "form.submit": "Жіберу",
+    "about.title": "Компания туралы",
+    "bin.title": "Жеке кабинет",
+    "bin.message": "Бұл бөлім әзірленуде.",
+    "bin.back": "Басты бетке",
+    "bin.login": "Кіру",
+    "bin.register": "Тіркелу",
+    "bin.logout": "Шығу",
+    "bin.email": "Email",
+    "bin.password": "Құпия сөз",
+    "bin.name": "Аты",
+    "bin.login_btn": "Кіру",
+    "bin.register_btn": "Тіркелу",
+    "bin.welcome": "Қош келдіңіз, ",
+    "bin.no_account": "Аккаунтыңыз жоқ па?",
+    "bin.has_account": "Аккаунтыңыз бар ма?",
+    "bin.login_required": "Тапсырыс беру үшін жүйеге кіріңіз",
+    "cart.title": "Себет",
+    "cart.total": "Барлығы: ",
+    "cart.order": "Қазір тапсырыс беру",
+    "city.astana": "Астана",
+    "city.almaty": "Алматы",
+    "city.shymkent": "Шымкент",
+    cinema_header: "Кинотеатрлар - ",
+    no_cinemas: "Бұл қалада әзірге біздің кинотеатрлар жоқ.",
+    price_from: "бастап",
+    "about.text1":
+      "Kinopark — Қазақстандағы ең ірі кинотеатрлар желісі, көрермендерге заманауи кино көрсету технологияларын, жоғары деңгейдегі қызмет пен жайлы залдарды ұсынады.",
+    "about.text2":
+      "Компания IMAX, лазерлік проекторлар, премиум зал форматтарын және билет сатып алуға арналған ыңғайлы цифрлық сервистерді енгізу арқылы кино мәдениетін белсенді дамытуда.",
+    "about.text3":
+      "Бүгінгі таңда Kinopark — бұл ондаған кинотеатрлар, күн сайын мыңдаған көрермендер және ойын-сауық индустриясының тұрақты дамуы.",
+    "about.stats.cinemas": "Ел бойынша кинотеатрлар",
+    "about.stats.halls": "Ең жақсы жабдықталған залдар",
+    "about.stats.viewers": "Жыл сайынғы бақытты көрермендер",
+    "about.btn.view_cinemas": "Кинотеатрлар тізімін көру",
+  },
 };
 
 // регистрация
@@ -383,79 +401,85 @@ const users = JSON.parse(localStorage.getItem("users")) || [];
 let currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
 
 function registerUser(name, email, password) {
-    if (users.find(u => u.email === email)) {
-        return { success: false, message: "Email already exists" };
-    }
-    const newUser = { name, email, password, history: [], loyaltyPoints: 0, joinDate: new Date().toISOString() };
-    users.push(newUser);
-    localStorage.setItem("users", JSON.stringify(users));
-    
-    currentUser = newUser;
-    localStorage.setItem("currentUser", JSON.stringify(currentUser));
-    return { success: true };
+  if (users.find((u) => u.email === email)) {
+    return { success: false, message: "Email already exists" };
+  }
+  const newUser = {
+    name,
+    email,
+    password,
+    history: [],
+    loyaltyPoints: 0,
+    joinDate: new Date().toISOString(),
+  };
+  users.push(newUser);
+  localStorage.setItem("users", JSON.stringify(users));
+
+  currentUser = newUser;
+  localStorage.setItem("currentUser", JSON.stringify(currentUser));
+  return { success: true };
 }
 
 function loginUser(email, password) {
-    const user = users.find(u => u.email === email && u.password === password);
-    if (user) {
-        currentUser = user;
-        localStorage.setItem("currentUser", JSON.stringify(currentUser));
-        return { success: true };
-    }
-    return { success: false, message: "Invalid email or password" };
+  const user = users.find((u) => u.email === email && u.password === password);
+  if (user) {
+    currentUser = user;
+    localStorage.setItem("currentUser", JSON.stringify(currentUser));
+    return { success: true };
+  }
+  return { success: false, message: "Invalid email or password" };
 }
 
 function logoutUser() {
-    currentUser = null;
-    localStorage.removeItem("currentUser");
-    updateUI();
-    // Force re-render of auth page if we are on it
-    if(document.getElementById("auth-section")) {
-        renderAuthPage();
-    }
+  currentUser = null;
+  localStorage.removeItem("currentUser");
+  updateUI();
+  if (document.getElementById("auth-section")) {
+    renderAuthPage();
+  }
 }
 
-window.handleLogin = function(e) {
-    if(e) e.preventDefault();
-    const email = document.getElementById('login-email').value;
-    const pass = document.getElementById('login-password').value;
-    
-    const res = loginUser(email, pass);
-    if (res.success) {
-        window.location.href = "profile.html";
-    } else {
-        const err = document.getElementById('login-error');
-        if(err) {
-            err.textContent = res.message;
-            err.style.display = 'block';
-        }
-    }
-}
+window.handleLogin = function (e) {
+  if (e) e.preventDefault();
+  const email = document.getElementById("login-email").value;
+  const pass = document.getElementById("login-password").value;
 
-window.handleRegister = function(e) {
-    if(e) e.preventDefault();
-    const name = document.getElementById('reg-name').value;
-    const email = document.getElementById('reg-email').value;
-    const pass = document.getElementById('reg-password').value;
-    
-    const res = registerUser(name, email, pass);
-    if (res.success) {
-        window.location.href = "profile.html";
-    } else {
-        const err = document.getElementById('reg-error');
-        if(err) {
-            err.textContent = res.message;
-            err.style.display = 'block';
-        }
+  const res = loginUser(email, pass);
+  if (res.success) {
+    window.location.href = "profile.html";
+  } else {
+    const err = document.getElementById("login-error");
+    if (err) {
+      err.textContent = res.message;
+      err.style.display = "block";
     }
-}
+  }
+};
+
+window.handleRegister = function (e) {
+  if (e) e.preventDefault();
+  const name = document.getElementById("reg-name").value;
+  const email = document.getElementById("reg-email").value;
+  const pass = document.getElementById("reg-password").value;
+
+  const res = registerUser(name, email, pass);
+  if (res.success) {
+    window.location.href = "profile.html";
+  } else {
+    const err = document.getElementById("reg-error");
+    if (err) {
+      err.textContent = res.message;
+      err.style.display = "block";
+    }
+  }
+};
 
 function renderAuthPage() {
-    const authContainer = document.getElementById('auth-section');
-    if(!authContainer) return;
+  const authContainer = document.getElementById("auth-section");
+  if (!authContainer) return;
 
-    if (currentUser) {
-        authContainer.innerHTML = `
+  if (currentUser) {
+    authContainer.innerHTML = `
             <div class="auth-message" style="text-align: center; padding: 50px;">
                 <h2 data-i18n="bin.already_logged_in">Вы уже вошли</h2>
                 <p>Вы авторизованы как <strong>${currentUser.name}</strong></p>
@@ -465,14 +489,14 @@ function renderAuthPage() {
                 </div>
             </div>
         `;
-        return;
-    }
+    return;
+  }
 
-    renderLoginView(authContainer);
+  renderLoginView(authContainer);
 }
 
 function renderLoginView(container) {
-    container.innerHTML = `
+  container.innerHTML = `
         <div class="auth-forms">
             <h2 data-i18n="bin.login">Вход</h2>
             <div class="error-msg" id="login-error"></div>
@@ -492,12 +516,14 @@ function renderLoginView(container) {
             </div>
         </div>
     `;
-    updateUI();
-    document.getElementById('go-register').onclick = () => renderRegisterView(container);
+  updateUI();
+  document.getElementById("go-register").onclick = () =>
+    renderRegisterView(container);
 }
 
+//
 function renderRegisterView(container) {
-    container.innerHTML = `
+  container.innerHTML = `
         <div class="auth-forms">
             <h2 data-i18n="bin.register">Регистрация</h2>
             <div class="error-msg" id="reg-error"></div>
@@ -521,38 +547,40 @@ function renderRegisterView(container) {
             </div>
         </div>
     `;
-    updateUI();
-    document.getElementById('go-login').onclick = () => renderLoginView(container);
+  updateUI();
+  document.getElementById("go-login").onclick = () =>
+    renderLoginView(container);
 }
 // иишный код, надо будет переделать
 
-
-if(!localStorage.getItem("currentCity")) localStorage.setItem("currentCity", "Astana");
-if(!localStorage.getItem("currentLang")) localStorage.setItem("currentLang", "ru");
+if (!localStorage.getItem("currentCity"))
+  localStorage.setItem("currentCity", "Astana");
+if (!localStorage.getItem("currentLang"))
+  localStorage.setItem("currentLang", "ru");
 // неработает, исправить
 
 // профиль
+//
 function renderProfilePage() {
-    const container = document.getElementById('profile-section');
-    if(!container) return;
+  const container = document.getElementById("profile-section");
+  if (!container) return;
 
-    // Determine correct path for login link
-    const isPagesDir = window.location.pathname.includes("/pages/");
-    const loginLink = isPagesDir ? "bin.html" : "pages/bin.html";
-    const t = translations[currentLang] || translations['ru'];
+  const isPagesDir = window.location.pathname.includes("/pages/");
+  const loginLink = isPagesDir ? "bin.html" : "pages/bin.html";
+  const t = translations[currentLang] || translations["ru"];
 
-    if (!currentUser) {
-        container.innerHTML = `
+  if (!currentUser) {
+    container.innerHTML = `
             <div class="profile-container" style="text-align: center; padding: 50px;">
                 <h2>${t["bin.title"] || "Личный кабинет"}</h2>
                 <p style="margin: 20px 0; font-size: 1.2em;">Пожалуйста, войдите в систему</p>
                 <a href="${loginLink}" class="btn btn-primary">Войти / Регистрация</a>
             </div>
         `;
-        return;
-    }
-    
-    container.innerHTML = `
+    return;
+  }
+
+  container.innerHTML = `
         <div class="profile-header">
             <h1 data-i18n="bin.title">${t["bin.title"] || "Личный кабинет"}</h1>
             <p class="welcome-msg">
@@ -595,8 +623,11 @@ function renderProfilePage() {
                 <div class="profile-card history-card" style="grid-column: 1 / -1;">
                     <h2>История покупок</h2>
                     <div class="history-list">
-                        ${currentUser.history && currentUser.history.length > 0 ? 
-                            currentUser.history.map(h => `
+                        ${
+                          currentUser.history && currentUser.history.length > 0
+                            ? currentUser.history
+                                .map(
+                                  (h) => `
                                 <div class="history-item">
                                     <div class="history-date">${new Date(h.date).toLocaleDateString()}</div>
                                     <div class="history-info">
@@ -605,7 +636,9 @@ function renderProfilePage() {
                                     </div>
                                     <div class="history-price">${h.price} ₸</div>
                                 </div>
-                            `).join('') 
+                            `,
+                                )
+                                .join("")
                             : '<p style="padding: 20px; color: #888;">История покупок пуста</p>'
                         }
                     </div>
@@ -617,23 +650,22 @@ function renderProfilePage() {
 }
 // ишный код, надо будет переделать
 
-
 // статус города и языка
 let currentCity = localStorage.getItem("currentCity") || "Astana";
 let currentLang = localStorage.getItem("currentLang") || "ru";
 
 function saveState() {
-    localStorage.setItem("currentCity", currentCity);
-    localStorage.setItem("currentLang", currentLang);
-    updateUI();
+  localStorage.setItem("currentCity", currentCity);
+  localStorage.setItem("currentLang", currentLang);
+  updateUI();
 }
 
 function createCard(film) {
   const card = document.createElement("div");
   card.className = "card";
-  
+
   const price = film.prices[currentCity] || film.prices["Astana"];
-  const t = translations[currentLang] || translations['ru'];
+  const t = translations[currentLang] || translations["ru"];
 
   card.dataset.name = film.title;
   card.dataset.price = price;
@@ -648,7 +680,7 @@ function createCard(film) {
 
     <div class="cardPrices">
       <div class="priceNormal add-to-cart">
-        ${t['price_from'] || 'от'} ${price} ₸
+        ${t["price_from"] || "от"} ${price} ₸
       </div>
     </div>
   `;
@@ -656,9 +688,12 @@ function createCard(film) {
   return card;
 }
 
-
-document.addEventListener("click", function(e) {
-  if (e.target.classList.contains("add-to-cart") || e.target.closest(".add-to-cart")) {
+// вороде корзина хз шахан делал
+document.addEventListener("click", function (e) {
+  if (
+    e.target.classList.contains("add-to-cart") ||
+    e.target.closest(".add-to-cart")
+  ) {
     const card = e.target.closest(".card");
     const name = card.dataset.name;
     const price = parseInt(card.dataset.price);
@@ -670,196 +705,196 @@ document.addEventListener("click", function(e) {
     }
 
     const cartEl = document.getElementById("cart");
-    if(cartEl) cartEl.classList.add("active");
+    if (cartEl) cartEl.classList.add("active");
     renderCart();
   }
 
-  if (e.target.classList.contains("close-cart") || e.target.closest(".close-cart")) {
-      const cartEl = document.getElementById("cart");
-      if(cartEl) cartEl.classList.remove("active");
+  if (e.target.classList.contains("close-cart")) {
+    cartData = {}; 
+    renderCart();
   }
-
-    if (e.target.classList.contains("clear-cart") || e.target.closest(".clear-cart")) {
-        cartData = {};      // полностью очищаем корзину
-        renderCart();       // перерисовываем пустую корзину
-
-        const cartEl = document.getElementById("cart");
-        if(cartEl) cartEl.classList.remove("active"); // закрываем корзину
-    }
 
   if (e.target.dataset.action === "inc-qty") {
-      changeQty(e.target.dataset.name, 1);
+    changeQty(e.target.dataset.name, 1);
   }
   if (e.target.dataset.action === "dec-qty") {
-      changeQty(e.target.dataset.name, -1);
+    changeQty(e.target.dataset.name, -1);
   }
 
   // либо вход либо отзыв
+  //
   if (e.target.classList.contains("order-btn")) {
-      if (!currentUser) {
-          const t = translations[currentLang] || translations['ru'];
-          alert(t["bin.login_required"] || "Please login first!");
-          
-           // Redirect to bin.html
-           const isPagesDir = window.location.pathname.includes("/pages/");
-           window.location.href = isPagesDir ? "bin.html" : "pages/bin.html"; 
-           
-      } else {
-           alert("Order placed successfully! (simulation)");
-           cartData = {};
-           renderCart();
-      }
+    if (!currentUser) {
+      const t = translations[currentLang] || translations["ru"];
+      alert(t["bin.login_required"] || "Please login first!");
+
+      const isPagesDir = window.location.pathname.includes("/pages/");
+      window.location.href = isPagesDir ? "bin.html" : "pages/bin.html";
+    } else {
+      alert("Order placed successfully! (simulation)");
+      cartData = {};
+      renderCart();
+    }
   }
   // тоже иишный код, возможно нужно будет переделать
 
   // side menu toggle
   if (e.target.closest(".menu")) {
-      const sideMenu = document.querySelector(".side-menu");
-      const overlay = document.querySelector(".menu-overlay");
-      if(sideMenu) sideMenu.classList.add("active");
-      if(overlay) overlay.classList.add("active");
+    const sideMenu = document.querySelector(".side-menu");
+    const overlay = document.querySelector(".menu-overlay");
+    if (sideMenu) sideMenu.classList.add("active");
+    if (overlay) overlay.classList.add("active");
   }
 
   // close side menu
-  if (e.target.classList.contains("side-menu-close") || e.target.classList.contains("menu-overlay")) {
-      const sideMenu = document.querySelector(".side-menu");
-      const overlay = document.querySelector(".menu-overlay");
-      if(sideMenu) sideMenu.classList.remove("active");
-      if(overlay) overlay.classList.remove("active");
+  if (
+    e.target.classList.contains("side-menu-close") ||
+    e.target.classList.contains("menu-overlay")
+  ) {
+    const sideMenu = document.querySelector(".side-menu");
+    const overlay = document.querySelector(".menu-overlay");
+    if (sideMenu) sideMenu.classList.remove("active");
+    if (overlay) overlay.classList.remove("active");
   }
 
   // city dropdown toggle
   if (e.target.closest(".city_change")) {
-      const dropdown = document.querySelector(".city-dropdown");
-      if (dropdown) {
-          if(e.target.classList.contains("city-option")) {
-              currentCity = e.target.dataset.city;
-              saveState();
-              dropdown.classList.remove("active");
-          } else {
-              dropdown.classList.toggle("active");
-          }
+    const dropdown = document.querySelector(".city-dropdown");
+    if (dropdown) {
+      if (e.target.classList.contains("city-option")) {
+        currentCity = e.target.dataset.city;
+        saveState();
+        dropdown.classList.remove("active");
+      } else {
+        dropdown.classList.toggle("active");
       }
+    }
   } else {
-      const dropdown = document.querySelector(".city-dropdown");
-      if(dropdown) dropdown.classList.remove("active");
+    const dropdown = document.querySelector(".city-dropdown");
+    if (dropdown) dropdown.classList.remove("active");
   }
-
 });
 
-
 function updateUI() {
-    const cityDisplay = document.querySelector(".city_name");
-    const cityDropdown = document.querySelector(".city-dropdown");
-    const t = translations[currentLang] || translations['ru'];
-    
-    if (cityDropdown) {
-        cityDropdown.innerHTML = "";
-        cities.forEach(city => {
-            const div = document.createElement("div");
-            div.className = "city-option";
-            div.dataset.city = city;
-            div.textContent = t[`city.${city.toLowerCase()}`] || city;
-            cityDropdown.appendChild(div);
-        });
-    }
+  const cityDisplay = document.querySelector(".city_name");
+  const cityDropdown = document.querySelector(".city-dropdown");
+  const t = translations[currentLang] || translations["ru"];
 
-    if (cityDisplay) {
-        const cityKey = `city.${currentCity.toLowerCase()}`;
-        cityDisplay.textContent = t[cityKey] || currentCity;
-        cityDisplay.removeAttribute('data-i18n'); 
-    }
-
-    const langDisplay = document.querySelector(".lang_change");
-    if (langDisplay) {
-        const currentLangSpan = langDisplay.querySelector(".current-lang");
-        let langText = 'Rus';
-        if(currentLang === 'en') langText = 'Eng';
-        if(currentLang === 'kk') langText = 'Kaz';
-        
-        if(currentLangSpan) currentLangSpan.textContent = langText;
-    }
-    
-    applyTranslations();
-    
-    if (document.querySelector(".contacts-container")) {
-        renderCinemas();
-    }
-    
-    const searchInput = document.querySelector(".search");
-    const filterSelect = document.querySelector(".search-filter");
-    
-    let query = searchInput ? searchInput.value.toLowerCase() : "";
-    let category = filterSelect ? filterSelect.value : "all";
-    
-    const filteredFilms = films.filter(film => {
-        const matchesQuery = film.title.toLowerCase().includes(query);
-        const matchesCategory = category === "all" || film.category === category;
-        return matchesQuery && matchesCategory;
+  if (cityDropdown) {
+    cityDropdown.innerHTML = "";
+    cities.forEach((city) => {
+      const div = document.createElement("div");
+      div.className = "city-option";
+      div.dataset.city = city;
+      div.textContent = t[`city.${city.toLowerCase()}`] || city;
+      cityDropdown.appendChild(div);
     });
+  }
 
-    const c1 = document.getElementById("cards-container");
-    const c2 = document.getElementById("cards-container2");
-    const cCatalog = document.getElementById("catalog-container");
+  if (cityDisplay) {
+    const cityKey = `city.${currentCity.toLowerCase()}`;
+    cityDisplay.textContent = t[cityKey] || currentCity;
+    cityDisplay.removeAttribute("data-i18n");
+  }
 
-    if(c1) renderCards(filteredFilms.filter(f => f.category === "popular"), "cards-container");
-    if(c2) renderCards(filteredFilms.filter(f => f.category === "recommended"), "cards-container2");
-    if(cCatalog) renderCards(filteredFilms, "catalog-container");
+  const langDisplay = document.querySelector(".lang_change");
+  if (langDisplay) {
+    const currentLangSpan = langDisplay.querySelector(".current-lang");
+    let langText = "Rus";
+    if (currentLang === "en") langText = "Eng";
+    if (currentLang === "kk") langText = "Kaz";
 
-    renderCart();
-    updateAuthUI();
-    
-    if(document.getElementById("profile-section")) {
-        renderProfilePage();
-    }
+    if (currentLangSpan) currentLangSpan.textContent = langText;
+  }
+
+  applyTranslations();
+
+  if (document.querySelector(".contacts-container")) {
+    renderCinemas();
+  }
+
+  const searchInput = document.querySelector(".search");
+  const filterSelect = document.querySelector(".search-filter");
+
+  let query = searchInput ? searchInput.value.toLowerCase() : "";
+  let category = filterSelect ? filterSelect.value : "all";
+
+  const filteredFilms = films.filter((film) => {
+    const matchesQuery = film.title.toLowerCase().includes(query);
+    const matchesCategory = category === "all" || film.category === category;
+    return matchesQuery && matchesCategory;
+  });
+
+  const c1 = document.getElementById("cards-container");
+  const c2 = document.getElementById("cards-container2");
+  const cCatalog = document.getElementById("catalog-container");
+
+  if (c1)
+    renderCards(
+      filteredFilms.filter((f) => f.category === "popular"),
+      "cards-container",
+    );
+  if (c2)
+    renderCards(
+      filteredFilms.filter((f) => f.category === "recommended"),
+      "cards-container2",
+    );
+  if (cCatalog) renderCards(filteredFilms, "catalog-container");
+
+  renderCart();
+  updateAuthUI();
+
+  if (document.getElementById("profile-section")) {
+    renderProfilePage();
+  }
 }
 
 function updateAuthUI() {
   // доделать
- }
+}
 
 function applyTranslations() {
-    const t = translations[currentLang];
-    document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        if (t[key]) {
-            if (el.tagName === "INPUT" && el.getAttribute("placeholder")) {
-                el.placeholder = t[key];
-            } else {
-                el.textContent = t[key];
-            }
-        }
-    });
+  const t = translations[currentLang];
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.getAttribute("data-i18n");
+    if (t[key]) {
+      if (el.tagName === "INPUT" && el.getAttribute("placeholder")) {
+        el.placeholder = t[key];
+      } else {
+        el.textContent = t[key];
+      }
+    }
+  });
 }
 
 function renderCinemas() {
-    const container = document.querySelector(".contacts-container .contact-info");
-    if (!container) return;
+  const container = document.querySelector(".contacts-container .contact-info");
+  if (!container) return;
 
-    let list = document.getElementById("cinemas-list");
-    if (!list) {
-        list = document.createElement("div");
-        list.id = "cinemas-list";
-        list.className = "cinemas-list-container";
-        container.appendChild(list);
-    }
-    
-    const filteredCinemas = cinemas.filter(c => c.city === currentCity);
-    const t = translations[currentLang];
-    
-    let html = `
+  let list = document.getElementById("cinemas-list");
+  if (!list) {
+    list = document.createElement("div");
+    list.id = "cinemas-list";
+    list.className = "cinemas-list-container";
+    container.appendChild(list);
+  }
+
+  const filteredCinemas = cinemas.filter((c) => c.city === currentCity);
+  const t = translations[currentLang];
+
+  let html = `
         <div class="cinemas-header" style="margin-top: 20px; border-top: 1px solid #ddd; padding-top: 10px;">
             <br>
             <h3>${t["cinema_header"]}${currentCity}</h3>
         </div>
     `;
-    
-    if (filteredCinemas.length === 0) {
-        html += `<p>${t["no_cinemas"]}</p>`;
-    } else {
-        html += `<ul class="cinema-list" style="list-style: none; padding: 0;">`;
-        filteredCinemas.forEach(c => {
-            html += `
+
+  if (filteredCinemas.length === 0) {
+    html += `<p>${t["no_cinemas"]}</p>`;
+  } else {
+    html += `<ul class="cinema-list" style="list-style: none; padding: 0;">`;
+    filteredCinemas.forEach((c) => {
+      html += `
                 <li class="cinema-item" style="margin-bottom: 20px; background: #f9f9f9; padding: 15px; border-radius: 8px;">
                     <strong style="font-size: 1.1em; color: #333;">${c.name}</strong><br>
                     <span style="color: #666;">${c.address}</span><br>
@@ -867,16 +902,16 @@ function renderCinemas() {
                     <span style="font-size: 0.9em; color: #888;">${c.workHours}</span>
                 </li>
             `;
-        });
-        html += `</ul>`;
-    }
-    
-    list.innerHTML = html;
+    });
+    html += `</ul>`;
+  }
+
+  list.innerHTML = html;
 }
 
 function renderCards(data, containerId) {
   const container = document.getElementById(containerId);
-  if(!container) return;
+  if (!container) return;
   container.innerHTML = "";
 
   data.forEach(function (film) {
@@ -885,40 +920,39 @@ function renderCards(data, containerId) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    updateUI();
+  updateUI();
 
-    if(document.getElementById("auth-section")) {
-        renderAuthPage();
-    }
+  if (document.getElementById("auth-section")) {
+    renderAuthPage();
+  }
 
-    const searchInput = document.querySelector(".search");
-    const filterSelect = document.querySelector(".search-filter");
-    
-    if (searchInput) {
-        searchInput.addEventListener("input", updateUI);
-    }
-    if (filterSelect) {
-        filterSelect.addEventListener("change", updateUI);
-    }
-    
-    document.addEventListener("click", (e) => {
-       if (e.target.closest(".lang_change")) {
-            const dropdown = document.querySelector(".lang-dropdown");
-            if (dropdown) {
-                if(e.target.classList.contains("lang-option")) {
-                    currentLang = e.target.dataset.lang;
-                    saveState();
-                    dropdown.classList.remove("active");
-                } else {
-                    dropdown.classList.toggle("active");
-                }
-            }
-       } else {
-           const dropdown = document.querySelector(".lang-dropdown");
-           if(dropdown) dropdown.classList.remove("active");
-       }
-    });
+  const searchInput = document.querySelector(".search");
+  const filterSelect = document.querySelector(".search-filter");
 
+  if (searchInput) {
+    searchInput.addEventListener("input", updateUI);
+  }
+  if (filterSelect) {
+    filterSelect.addEventListener("change", updateUI);
+  }
+
+  document.addEventListener("click", (e) => {
+    if (e.target.closest(".lang_change")) {
+      const dropdown = document.querySelector(".lang-dropdown");
+      if (dropdown) {
+        if (e.target.classList.contains("lang-option")) {
+          currentLang = e.target.dataset.lang;
+          saveState();
+          dropdown.classList.remove("active");
+        } else {
+          dropdown.classList.toggle("active");
+        }
+      }
+    } else {
+      const dropdown = document.querySelector(".lang-dropdown");
+      if (dropdown) dropdown.classList.remove("active");
+    }
+  });
 });
 
 // валидация формы
@@ -936,13 +970,14 @@ if (contactForm) {
     formMessage.className = "form-message";
 
     let errors = [];
-    if (name === "") errors.push("Name required"); 
-    if (email === "" || !email.includes("@")) errors.push("Valid email required");
+    if (name === "") errors.push("Name required");
+    if (email === "" || !email.includes("@"))
+      errors.push("Valid email required");
     if (message === "") errors.push("Message required");
     if (!agreement) errors.push("Agreement required");
 
     if (errors.length > 0) {
-      formMessage.innerHTML = errors.join("<br>"); 
+      formMessage.innerHTML = errors.join("<br>");
       formMessage.classList.add("error");
       formMessage.style.display = "block";
     } else {
@@ -954,16 +989,14 @@ if (contactForm) {
     }
   });
 }
+//
 
-document.querySelectorAll(".nav-link").forEach(link => {
-    link.addEventListener("click", function(e) {
-        if (e.ctrlKey || e.metaKey) return;
-        if (this.href === window.location.href) return;
-
-    });
+document.querySelectorAll(".nav-link").forEach((link) => {
+  link.addEventListener("click", function (e) {
+    if (e.ctrlKey || e.metaKey) return;
+    if (this.href === window.location.href) return;
+  });
 });
-
-
 
 let cartData = {};
 
@@ -978,9 +1011,9 @@ function changeQty(name, delta) {
 function renderCart() {
   const cartItems = document.getElementById("cartItems");
   const totalPrice = document.getElementById("totalPrice");
-  
-  if(!cartItems || !totalPrice) return;
-  
+
+  if (!cartItems || !totalPrice) return;
+
   cartItems.innerHTML = "";
 
   let total = 0;
@@ -1001,27 +1034,30 @@ function renderCart() {
     cartItems.appendChild(div);
   }
 
-  const t = translations[currentLang] || translations['ru'];
-  totalPrice.innerText = `${t["cart.total"]} ${total} ₸`; 
+  const t = translations[currentLang] || translations["ru"];
+  totalPrice.innerText = `${t["cart.total"]} ${total} ₸`;
 }
+//
 
 // Экспорт глобального объекта authSystem для использования в HTML (например, onclick="window.authSystem.logoutUser()")
 window.authSystem = {
-    users,
-    get currentUser() { return currentUser; },
-    registerUser,
-    loginUser,
-    logoutUser
-};
+  users,
+  get currentUser() {
+    return currentUser;
+  },
+  registerUser,
+  loginUser,
+  logoutUser,
+}; // хз че это, тоже ишшная тема
 
-document.querySelectorAll(".nav-link").forEach(link => {
-    link.addEventListener("click", function(e) {
-        e.preventDefault();
-        let url = this.href;
-        document.body.classList.add("fade-out");
+document.querySelectorAll(".nav-link").forEach((link) => {
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+    let url = this.href;
+    document.body.classList.add("fade-out");
 
-        setTimeout(() => {
-            window.location.href = url;
-        }, 500);
-    });
+    setTimeout(() => {
+      window.location.href = url;
+    }, 500);
+  });
 });
