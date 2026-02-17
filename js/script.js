@@ -712,6 +712,9 @@ document.addEventListener("click", function (e) {
   if (e.target.classList.contains("close-cart")) {
     cartData = {}; 
     renderCart();
+
+    const cartEl = document.getElementById("cart");
+    if (cartEl) cartEl.classList.remove("active");
   }
 
   if (e.target.dataset.action === "inc-qty") {
